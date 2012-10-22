@@ -1,0 +1,8 @@
+---
+layout: page
+title: "Page Error"
+date: 2012-10-18 14:14
+comments: true
+sharing: true
+footer: true
+---

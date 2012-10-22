@@ -1,0 +1,19 @@
+
+git clone git://github.com/imathis/octopress.git blog
+cd blog
+ruby --version
+python --version
+sudo gem install bundler
+sudo apt-get install ruby1.9.1
+sudo apt-get install ruby1.9.1-dev
+
+bundle install
+rake install
+
+rake generate
+rake preview
+
+rake setup_github_pages
+rake generate
+rake deploy
+
