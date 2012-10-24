@@ -69,8 +69,8 @@ github_skip_forks: true
 google_analytics_tracking_id: UA-35616912-1
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: librakyle
+disqus_show_comment_count: true
 
 # Twitter
 twitter_user:
