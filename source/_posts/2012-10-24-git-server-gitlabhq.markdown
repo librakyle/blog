@@ -24,6 +24,8 @@ sudo apt-get upgrade
 sudo apt-get install -y wget curl gcc checkinstall libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev libicu-dev redis-server openssh-server git-core python-dev python-pip libyaml-dev postfix libpq-dev
 ```
 
+<!-- more -->
+
 #### 安装数据库
 ```
 # 安装sqlite3数据库
@@ -110,6 +112,8 @@ vim sudo config/resque.yml
 # 修改Gitlab配置中主机域名
 # web
 #   - host
+# email
+#   - from
 # git_host
 #   - admin-uri
 #   - host
@@ -135,10 +139,10 @@ sudo update-rc.d gitlab defaults 21
 sudo /etc/init.d/gitlab restart
 ```
 ### 未解决的问题
+
 * 当文件名称或者路径名词为中文时，Gitlabhq页面点击查看文件内容时会出现异常。
 {% img center /images/png/gitlab-file.png 'Gitlab File Show Error' 'Gitlab File Show Error' %}
+
 * 当某提交中文件包含中文命名的文件，那么该文件无法展示修改对比。
 {% img center /images/png/gitlab-commit.png 'Gitlab Commit Show Error' 'Gitlab Commit Show Error' %}
-* Gitlabhq系统提供了自动发送邮件的相关服务，暂时没有配置该功能，管理员登陆Gitlab会发现异常。
-{% img center /images/png/gitlab-email.png 'Gitlab Email Config Error' 'Gitlab Email Config Error' %}
 
