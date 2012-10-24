@@ -54,6 +54,7 @@ sudo make install
 sudo adduser --system --shell /bin/sh --gecos 'git version control' --group --disabled-password --home /home/git git
 sudo adduser --disabled-login --gecos 'gitlab system' gitlab
 sudo usermod -a -G git gitlab
+sudo usermod -a -G gitlab git
 sudo -H -u gitlab ssh-keygen -q -N '' -t rsa -f /home/gitlab/.ssh/id_rsa
 sudo -H -u git git clone -b gl-v304 https://github.com/gitlabhq/gitolite.git /home/git/gitolite
 cd /home/git
