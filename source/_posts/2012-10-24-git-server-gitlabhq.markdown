@@ -109,7 +109,7 @@ sudo -u gitlab bundle exec rake gitlab:app:status RAILS_ENV=production
 # 配置参数
 sudo -u gitlab cp config/resque.yml.example config/resque.yml
 # 如果Gitolite不是安装在同一系统下，则需要运行下面命令将localhost修改为对应的域名（本次安装没有进行如下操作，因此没有测试下面的修改）
-vim sudo config/resque.yml
+sudo vim config/resque.yml
 # 修改Gitlab配置中主机域名
 # web
 #   - host
@@ -118,11 +118,14 @@ vim sudo config/resque.yml
 # git_host
 #   - admin-uri
 #   - host
-vim sudo config/gitlab.yml
+sudo vim config/gitlab.yml
 
 # 开启Gitlabhq服务，初始用户名为：admin@local.host，密码为5iveL!fe。
 sudo -u gitlab bundle exec rails s -e production
 sudo -u gitlab bundle exec rails s -e production -d
+
+sudo -u gitlab bundle exec rake environment resque:work QUEUE=* RAILS_ENV=production BACKGROUND=yes
+sudo -u gitlab ./resque.sh
 
 # 配置WEB服务
 cd /home/gitlab/gitlab
