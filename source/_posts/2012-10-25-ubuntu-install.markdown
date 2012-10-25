@@ -10,8 +10,6 @@ tags:
     - Ubuntu
 ---
 
-### 文档说明
-
 记录下VirtualBox下安装Ubuntu虚拟机的一些配置。
 
 ### 配置Ubuntu

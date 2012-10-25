@@ -9,8 +9,6 @@ tags:
     - Git
 ---
 
-### 文档说明
-
 开始研究Git，[《Git权威指南》](http://www.worldhello.net/gotgit/)这本书看了一部分了，觉得讲解的挺详细挺好的。
 在这里记录一下部分Git命令，方便查找。
 
