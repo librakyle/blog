@@ -36,8 +36,8 @@ XDG_VIDEOS_DIR="$HOME/"
 
 #### 文件共享
 ```
-sudo mkdir ~/shared
-sudo mount -t vboxsf ubuntu ~/shared
+sudo adduser librakyle vboxsf
+ln -s /media/sf_ubuntu/ ~/shared
 ```
 
 <!-- more -->
