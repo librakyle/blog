@@ -9,7 +9,7 @@ tags:
     - Octopress
 ---
 
-参考[Octopress](http://octopress.org)的文档说明，在这里记录一下使用Octopress插件的一些样例，方便以后查找。
+参考[Octopress](http://octopress.org)的说明文档，记录下使用Octopress插件的部分样例，方便以后查找。
 
 <!--more-->
 

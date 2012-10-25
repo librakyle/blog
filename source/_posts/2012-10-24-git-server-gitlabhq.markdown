@@ -10,7 +10,7 @@ tags:
     - Gitlab
 ---
 
-这几天在Ubuntu系统下搭建好了Git服务器，采用的是开源的[Gitlab](https://github.com/gitlabhq/gitlabhq/)。
+这几天在Ubuntu系统下搭建好了Git服务器，采用开源的[Gitlab](https://github.com/gitlabhq/gitlabhq/)。
 由于Gitlab更新频率挺快，参考官方文档还是相当靠谱的，这里只是简单记录几笔。
 
 <!-- more -->
