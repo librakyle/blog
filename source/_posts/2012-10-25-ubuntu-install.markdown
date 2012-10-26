@@ -1,12 +1,13 @@
 ---
 layout: post
-title: "Ubuntu Install"
+title: "Ubuntu安装"
 date: 2012-10-25 13:01
 comments: true
 categories: 
     - Program
 tags:
     - Ubuntu
+    - VirtualBox
 ---
 
 记录下VirtualBox下安装Ubuntu虚拟机的一些配置。
