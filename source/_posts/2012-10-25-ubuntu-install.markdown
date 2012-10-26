@@ -32,13 +32,13 @@ XDG_PICTURES_DIR="$HOME/"
 XDG_VIDEOS_DIR="$HOME/"
 ```
 
+<!-- more -->
+
 #### 文件共享
 ```
 sudo adduser librakyle vboxsf
 ln -s /media/sf_ubuntu/ ~/shared
 ```
-
-<!-- more -->
 
 #### 软件源
 ```

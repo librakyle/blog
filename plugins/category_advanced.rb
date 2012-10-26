@@ -18,22 +18,6 @@ module Jekyll
       html
     end
   end
-  
-  class CategoriesListTag < Liquid::Tag
-    def render(context)
-      html = ""
-      categories = context.registers[:site].categories.keys
-      categories.sort!.map do |category|
-        for item in  context.registers[:site].categories[category]  
-           html << "<h1><a href='#'>#{item.name}</a></h1>"
-        end
-      end
-      html
-    end
-  end
-  
-  
 end
 
 Liquid::Template.register_tag('category_sidebar', Jekyll::CategoryListTag)
-Liquid::Template.register_tag('categories_post', Jekyll::CategoriesListTag)

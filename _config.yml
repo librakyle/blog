@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://librakyle.github.com
+url: http://code.librakyle.com
 title: LibraKyle Home
 subtitle: 4B 79 6C 65 20 6C 6F 76 65 73 20 46 65 6C 69 63 69 61 21
 author: LibraKyle
@@ -35,6 +35,9 @@ code_dir: downloads/code
 category_dir: blog/categories
 category_hash_len: 8
 category_title_prefix: "Category: "
+tag_dir: blog/tags
+tag_hash_len: 8
+tag_title_prefix: "Tag: "
 markdown: rdiscount
 pygments: false # default python pygments have been replaced by pygments.rb
 
@@ -48,13 +51,13 @@ titlecase: true       # Converts page and post titles to titlecase
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
 # default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
-default_asides:
+default_asides: [custom/asides/categories.html, custom/asides/tags.html, asides/recent_posts.html, asides/github.html, custom/asides/about.html, ]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
-blog_index_asides:  [custom/asides/categories.html, asides/recent_posts.html, asides/github.html, custom/asides/about.html, ]
-post_asides:        [custom/asides/categories.html, asides/recent_posts.html, asides/github.html, custom/asides/about.html, ]
-page_asides:        [custom/asides/categories.html, asides/recent_posts.html, asides/github.html, custom/asides/about.html, ]
+#blog_index_asides:  [custom/asides/categories.html, asides/recent_posts.html, asides/github.html, custom/asides/about.html, ]
+#post_asides:        [custom/asides/categories.html, asides/recent_posts.html, asides/github.html, custom/asides/about.html, ]
+#page_asides:        [custom/asides/categories.html, asides/recent_posts.html, asides/github.html, custom/asides/about.html, ]
 
 # ----------------------- #
 #   3rd Party Settings    #
@@ -63,8 +66,8 @@ page_asides:        [custom/asides/categories.html, asides/recent_posts.html, as
 # Github repositories
 github_user:
 github_repo_count: 0
-github_show_profile_link: true
-github_skip_forks: true
+github_show_profile_link: false
+github_skip_forks: false
 
 # Google Analytics
 google_analytics_tracking_id: UA-35616912-1
@@ -92,11 +95,11 @@ googleplus_hidden: false
 
 # Pinboard
 pinboard_user:
-pinboard_count: 3
+pinboard_count: 0
 
 # Delicious
 delicious_user:
-delicious_count: 3
+delicious_count: 0
 
 # Facebook Like
 facebook_like: false
