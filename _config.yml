@@ -19,7 +19,7 @@ date_format: "ordinal" # "%Y年%m月%d日"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email: admin@librakyle.com
+email: librakyle@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #

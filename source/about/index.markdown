@@ -6,3 +6,7 @@ comments: true
 sharing: true
 footer: true
 ---
+
+{% gravatar admin@librakyle.com %}
+
+

@@ -3,7 +3,6 @@ layout: post
 title: "Ubuntu Install"
 date: 2012-10-25 13:01
 comments: true
-published: false
 categories: 
     - Program
 tags:
@@ -14,7 +13,7 @@ tags:
 
 ### 配置Ubuntu
 
-#### 配置Vim
+#### 配置[Vim](https://github.com/asins/vim)
 ```
 vim /etc/vim/vimrc.local
 ```
@@ -44,16 +43,6 @@ ln -s /media/sf_ubuntu/ ~/shared
 ```
 sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
 gedit /etc/apt/sources.list
-deb http://mirrors.sohu.com/ubuntu/ precise main restricted universe multiverse
-deb http://mirrors.sohu.com/ubuntu/ precise-security main restricted universe multiverse
-deb http://mirrors.sohu.com/ubuntu/ precise-updates main restricted universe multiverse
-deb http://mirrors.sohu.com/ubuntu/ precise-proposed main restricted universe multiverse
-deb http://mirrors.sohu.com/ubuntu/ precise-backports main restricted universe multiverse
-deb-src http://mirrors.sohu.com/ubuntu/ precise main restricted universe multiverse
-deb-src http://mirrors.sohu.com/ubuntu/ precise-security main restricted universe multiverse
-deb-src http://mirrors.sohu.com/ubuntu/ precise-updates main restricted universe multiverse
-deb-src http://mirrors.sohu.com/ubuntu/ precise-proposed main restricted universe multiverse
-deb-src http://mirrors.sohu.com/ubuntu/ precise-backports main restricted universe multiverse
 sudo apt-get update
 sudo apt-get upgrade
 ```
