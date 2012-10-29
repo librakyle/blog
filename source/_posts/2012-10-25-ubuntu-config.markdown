@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ubuntu安装"
+title: "Ubuntu配置"
 date: 2012-10-25 13:01
 comments: true
 categories: 
