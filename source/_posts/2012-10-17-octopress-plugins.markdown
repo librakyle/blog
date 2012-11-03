@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 ```
-{% include_code Test include_code test.cpp %}
+{% include_code Test test.cpp %}
 {% gist 3903590 %}
 {% gist 3903596 test.cpp %}
 

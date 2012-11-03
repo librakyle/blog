@@ -14,9 +14,12 @@ tags:
 
 ### 配置Ubuntu
 
-#### 配置[Vim](https://github.com/asins/vim)
+#### 配置Vim
+{% include_code .vimrc lang:ini %}
+
+#### 安装右键终端
 ```
-vim /etc/vim/vimrc.local
+sudo apt-get install nautilus-open-terminal
 ```
 
 #### 桌面中文问题
@@ -33,12 +36,6 @@ XDG_VIDEOS_DIR="$HOME/"
 ```
 
 <!-- more -->
-
-#### 文件共享
-```
-sudo adduser librakyle vboxsf
-ln -s /media/sf_ubuntu/ ~/shared
-```
 
 #### 软件源
 ```

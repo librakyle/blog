@@ -17,9 +17,13 @@ tags:
 
 ### Gitlab安装相关
 
-安装过程中需要修改Gitlab的配置文件`config/gitlab.yml`中`web:host`, `email:from`，
-`git_host:admin_uri host`相关参数，
-以及Nginx的配置文件`/etc/nginx/sites-enabled/gitlab`中`listen`，`server_name`相关参数。
+安装过程中需要修改Gitlab的配置文件。
+```
+# web:host, eamil:from, git_host:admin_url host
+sudo vim /etc/nginx/sites-enabled/gitlab
+# listen, server_name
+sudo vim /home/gitlab/gitlab/config/gitlab.yml
+```
 
 安装完成之后，需要运行如下命令来使得Gitolite认可当前域名，切记切记！！！
 ```
