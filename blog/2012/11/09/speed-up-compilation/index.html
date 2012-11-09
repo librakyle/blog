@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="zh-cn"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog - LibraKyle Home</title>
+  <title>一个加快编译速度的方法 - LibraKyle Home</title>
   <meta name="author" content="LibraKyle">
 
   
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.librakyle.com/blog/">
+  <link rel="canonical" href="http://blog.librakyle.com/blog/2012/11/09/speed-up-compilation/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -83,15 +83,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/11/09/speed-up-compilation/">一个加快编译速度的方法</a></h1>
+      <h1 class="entry-title">一个加快编译速度的方法</h1>
     
     
       <p class="meta">
@@ -109,14 +106,14 @@
 
 <time datetime="2012-11-09T15:44:00+08:00" pubdate data-updated="true">Nov 9<span>th</span>, 2012</time>
         
-         | <a href="/blog/2012/11/09/speed-up-compilation/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>前几天研究Makefile文件，对gcc/g++是如何编译链接程序的过程有了基本认识，
+<div class="entry-content"><p>前几天研究Makefile文件，对gcc/g++是如何编译链接程序的过程有了基本认识，
 回想以前自己写程序时的一些不好的习惯，整理出来了一个能够加快编译速度的方法，
 记录在这里供大家参考。请看下面的代码：</p>
 
@@ -266,67 +263,16 @@ Compute类会调用Print类，第(2)步也是需要重做的，
 <p>在大型项目中，如果所有的程序在编写过程中都使用上述方法，
 那么单独修改几个文件，不会导致整个项目的重新编译，从而能够大大提高编译速度。</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/09/cpp-develop-environment/">C++ 开发环境</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">LibraKyle</span></span>
 
-<time datetime="2012-11-09T09:53:00+08:00" pubdate data-updated="true">Nov 9<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/09/cpp-develop-environment/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近安装Ubuntu后，开始折腾Ubuntu下的C++开发环境:
-编辑器选择的是Vim，编译C++程序选择的是g++，并自己去写Makefile文件，
-调试程序选择GDB。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/11/09/cpp-develop-environment/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/25/ubuntu-config/">Ubuntu配置</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -338,221 +284,53 @@ Compute类会调用Print类，第(2)步也是需要重做的，
   
 
 
-<time datetime="2012-10-25T13:01:00+08:00" pubdate data-updated="true">Oct 25<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/25/ubuntu-config/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>记录下VirtualBox下安装Ubuntu虚拟机的一些配置。</p>
-
-<h3>配置Ubuntu</h3>
-
-<h4>安装右键终端</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install nautilus-open-terminal</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>桌面中文问题</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vim ～/.config/user-dirs.dirs
-</span><span class='line'>XDG_DESKTOP_DIR="$HOME/"
-</span><span class='line'>XDG_DOWNLOAD_DIR="$HOME/"
-</span><span class='line'>XDG_TEMPLATES_DIR="$HOME/"
-</span><span class='line'>XDG_PUBLICSHARE_DIR="$HOME/"
-</span><span class='line'>XDG_DOCUMENTS_DIR="$HOME/"
-</span><span class='line'>XDG_MUSIC_DIR="$HOME/"
-</span><span class='line'>XDG_PICTURES_DIR="$HOME/"
-</span><span class='line'>XDG_VIDEOS_DIR="$HOME/"</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/25/ubuntu-config/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2012-11-09T15:44:00+08:00" pubdate data-updated="true">Nov 9<span>th</span>, 2012</time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/24/git-server-gitlabhq/">Git服务器搭建—Gitlab</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
+  Categories in
   
-
-
-<time datetime="2012-10-24T14:59:00+08:00" pubdate data-updated="true">Oct 24<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/24/git-server-gitlabhq/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>这几天在Ubuntu系统下搭建好了Git服务器，采用开源的<a href="https://github.com/gitlabhq/gitlabhq/">Gitlab</a>。
-由于Gitlab更新频率挺快，参考官方文档还是相当靠谱的，这里只是简单记录几笔。</p>
-
-</div>
+    <a class='category' href='/blog/categories/95c50c7c/'>Program</a>
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/24/git-server-gitlabhq/">Read More &rarr;</a>
-    </footer>
-  
+</span>
 
 
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/18/git-usage/">Git部分命令说明</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
+  Tags in
   
+    <a class='category' href='/blog/tags/f6f87c9f/'>C++</a>, <a class='category' href='/blog/tags/3de9387f/'>Compile</a>
+  
+</span>
 
 
-<time datetime="2012-10-18T14:33:00+08:00" pubdate data-updated="true">Oct 18<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/18/git-usage/#disqus_thread">Comments</a>
-        
-      </p>
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>开始研究Git，<a href="http://www.worldhello.net/gotgit/">《Git权威指南》</a>这本书看了一部分了，觉得讲解的挺详细挺好的。
-记录部分Git命令，方便查找。</p>
-
-<h3>参数配置</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git config --global core.quotepath false        # 解决中文问题
-</span><span class='line'>git config --global color.ui true               # Git高亮
-</span><span class='line'>git config --global core.editor vim             # 配置默认编辑器
-</span><span class='line'>git config --global user.name [name]            # 配置默认用户名
-</span><span class='line'>git config --global user.email [email]          # 配置默认邮箱
-</span><span class='line'>git config --global core.excludesfile [file]    # 配置个人ignore配置
-</span><span class='line'>git config receive.denyNonFastForwards true     # 禁止非快进式推进
-</span><span class='line'>git config push.default tracking                # 设置默认只提交当前分支
-</span><span class='line'>git config branch.autosetuprebase always        # 执行更新时，使用变基来进行合并操作</span></code></pre></td></tr></table></div></figure>
-
-
-
-
+      <div class="sharing">
+  
+  
+  
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/18/git-usage/">Read More &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/17/octopress-plugins/">Octopress Plugins 使用样例</a></h1>
-    
-    
-      <p class="meta">
-        
+        <a class="basic-alignment left" href="/blog/2012/11/09/cpp-develop-environment/" title="Previous Post: C++ 开发环境">&laquo; C++ 开发环境</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-17T10:20:00+08:00" pubdate data-updated="true">Oct 17<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/17/octopress-plugins/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>参考<a href="http://octopress.org">Octopress</a>的说明文档，记录下使用Octopress插件的部分样例，方便以后查找。</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/17/octopress-plugins/">Read More &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -603,6 +381,7 @@ Compute类会调用Print类，第(2)步也是需要重做的，
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -617,7 +396,10 @@ Compute类会调用Print类，第(2)步也是需要重做的，
       var disqus_shortname = 'librakyle';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.librakyle.com/blog/2012/11/09/speed-up-compilation/';
+        var disqus_url = 'http://blog.librakyle.com/blog/2012/11/09/speed-up-compilation/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
