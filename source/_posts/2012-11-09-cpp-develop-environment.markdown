@@ -1,20 +1,20 @@
 ---
 layout: post
-title: "Ubuntu 开发环境"
+title: "C++ 开发环境"
 date: 2012-11-09 09:53
 comments: true
 categories: 
     - Program
 tags: 
-    - Ubuntu
+    - C++
     - Vim
     - Makefile
     - GDB
 ---
 
-最近安装Ubuntu后，开始折腾Ubuntu下的开发环境:
-编辑器选择的是vim，编译c++程序选择的是g++，并自己去写makefile文件，
-调试程序选择gdb。
+最近安装Ubuntu后，开始折腾Ubuntu下的C++开发环境:
+编辑器选择的是Vim，编译C++程序选择的是g++，并自己去写Makefile文件，
+调试程序选择GDB。
 
 <!-- more -->
 
