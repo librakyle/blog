@@ -14,18 +14,6 @@ tags:
 <!--more-->
 
 ### 高亮显示代码
-{% codeblock %}
-echo "Hello World."
-{% endcodeblock %}
-{% codeblock Test Codeblock lang:cpp http://blog.librakyle.com HomePage %}
-#include <iostream>
-using namespace std;
-int main(int argc, char *argv[])
-{
-    cout << "Hello World." << endl;
-    return 0;
-}
-{% endcodeblock %}
 ``` cpp Test Backtick http://blog.librakyle.com HomePage
 #include <iostream>
 using namespace std;

@@ -8,14 +8,12 @@ categories:
 tags:
     - Ubuntu
     - VirtualBox
+
 ---
 
 记录下VirtualBox下安装Ubuntu虚拟机的一些配置。
 
 ### 配置Ubuntu
-
-#### 配置Vim
-{% include_code .vimrc lang:ini %}
 
 #### 安装右键终端
 ```
@@ -44,5 +42,4 @@ gedit /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get upgrade
 ```
-
 

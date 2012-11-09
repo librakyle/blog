@@ -8,6 +8,7 @@ categories:
 tags:
     - Git
     - Gitlab
+
 ---
 
 这几天在Ubuntu系统下搭建好了Git服务器，采用开源的[Gitlab](https://github.com/gitlabhq/gitlabhq/)。
