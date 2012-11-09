@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Tag: Octopress | LibraKyle Home]]></title>
-  <link href="http://librakyle.github.com/blog/blog/tags/7135c322/atom.xml" rel="self"/>
-  <link href="http://librakyle.github.com/blog/"/>
-  <updated>2012-11-09T14:49:23+08:00</updated>
-  <id>http://librakyle.github.com/blog/</id>
+  <link href="http://blog.librakyle.com/blog/tags/7135c322/atom.xml" rel="self"/>
+  <link href="http://blog.librakyle.com/"/>
+  <updated>2012-11-09T14:53:05+08:00</updated>
+  <id>http://blog.librakyle.com/</id>
   <author>
     <name><![CDATA[LibraKyle]]></name>
     <email><![CDATA[librakyle@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress Plugins 使用样例]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/10/17/octopress-plugins/"/>
+    <link href="http://blog.librakyle.com/blog/2012/10/17/octopress-plugins/"/>
     <updated>2012-10-17T10:20:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/10/17/octopress-plugins</id>
+    <id>http://blog.librakyle.com/blog/2012/10/17/octopress-plugins</id>
     <content type="html"><![CDATA[<p>参考<a href="http://octopress.org">Octopress</a>的说明文档，记录下使用Octopress插件的部分样例，方便以后查找。</p>
 
 <!--more-->

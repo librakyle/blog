@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Tag: Vim | LibraKyle Home]]></title>
-  <link href="http://librakyle.github.com/blog/blog/tags/94403767/atom.xml" rel="self"/>
-  <link href="http://librakyle.github.com/blog/"/>
-  <updated>2012-11-09T14:49:23+08:00</updated>
-  <id>http://librakyle.github.com/blog/</id>
+  <link href="http://blog.librakyle.com/blog/tags/94403767/atom.xml" rel="self"/>
+  <link href="http://blog.librakyle.com/"/>
+  <updated>2012-11-09T14:53:05+08:00</updated>
+  <id>http://blog.librakyle.com/</id>
   <author>
     <name><![CDATA[LibraKyle]]></name>
     <email><![CDATA[librakyle@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[C++ 开发环境]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/11/09/cpp-develop-environment/"/>
+    <link href="http://blog.librakyle.com/blog/2012/11/09/cpp-develop-environment/"/>
     <updated>2012-11-09T09:53:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/11/09/cpp-develop-environment</id>
+    <id>http://blog.librakyle.com/blog/2012/11/09/cpp-develop-environment</id>
     <content type="html"><![CDATA[<p>最近安装Ubuntu后，开始折腾Ubuntu下的C++开发环境:
 编辑器选择的是Vim，编译C++程序选择的是g++，并自己去写Makefile文件，
 调试程序选择GDB。</p>

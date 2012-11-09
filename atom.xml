@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[LibraKyle Home]]></title>
-  <link href="http://librakyle.github.com/blog/atom.xml" rel="self"/>
-  <link href="http://librakyle.github.com/blog/"/>
-  <updated>2012-11-09T14:49:23+08:00</updated>
-  <id>http://librakyle.github.com/blog/</id>
+  <link href="http://blog.librakyle.com/atom.xml" rel="self"/>
+  <link href="http://blog.librakyle.com/"/>
+  <updated>2012-11-09T14:53:05+08:00</updated>
+  <id>http://blog.librakyle.com/</id>
   <author>
     <name><![CDATA[LibraKyle]]></name>
     <email><![CDATA[librakyle@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[C++ 开发环境]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/11/09/cpp-develop-environment/"/>
+    <link href="http://blog.librakyle.com/blog/2012/11/09/cpp-develop-environment/"/>
     <updated>2012-11-09T09:53:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/11/09/cpp-develop-environment</id>
+    <id>http://blog.librakyle.com/blog/2012/11/09/cpp-develop-environment</id>
     <content type="html"><![CDATA[<p>最近安装Ubuntu后，开始折腾Ubuntu下的C++开发环境:
 编辑器选择的是Vim，编译C++程序选择的是g++，并自己去写Makefile文件，
 调试程序选择GDB。</p>
@@ -29,7 +29,7 @@
 
 <p>采用vundle來管理vim的各种插件，配置文件如下：</p>
 
-<figure class='code'><figcaption><span> (.vimrc)</span> <a href='http://librakyle.github.com/blog/downloads/code/.vimrc'>download</a></figcaption>
+<figure class='code'><figcaption><span> (.vimrc)</span> <a href='http://blog.librakyle.com/downloads/code/.vimrc'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -528,7 +528,7 @@
 另外，他还提供了一个<a href="http://coolshell.cn/articles/3790.html">调试Makefile的小脚本</a>，
 觉得挺好的，记录在这里也分享给大家：</p>
 
-<figure class='code'><figcaption><span> (vars.mk)</span> <a href='http://librakyle.github.com/blog/downloads/code/vars.mk'>download</a></figcaption>
+<figure class='code'><figcaption><span> (vars.mk)</span> <a href='http://blog.librakyle.com/downloads/code/vars.mk'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -558,7 +558,7 @@
 
 <p>修改完成后的Makefile文件如下:</p>
 
-<figure class='code'><figcaption><span> (Makefile)</span> <a href='http://librakyle.github.com/blog/downloads/code/Makefile'>download</a></figcaption>
+<figure class='code'><figcaption><span> (Makefile)</span> <a href='http://blog.librakyle.com/downloads/code/Makefile'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1123,9 +1123,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ubuntu配置]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/10/25/ubuntu-config/"/>
+    <link href="http://blog.librakyle.com/blog/2012/10/25/ubuntu-config/"/>
     <updated>2012-10-25T13:01:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/10/25/ubuntu-config</id>
+    <id>http://blog.librakyle.com/blog/2012/10/25/ubuntu-config</id>
     <content type="html"><![CDATA[<p>记录下VirtualBox下安装Ubuntu虚拟机的一些配置。</p>
 
 <h3>配置Ubuntu</h3>
@@ -1181,9 +1181,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git服务器搭建—Gitlab]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/10/24/git-server-gitlabhq/"/>
+    <link href="http://blog.librakyle.com/blog/2012/10/24/git-server-gitlabhq/"/>
     <updated>2012-10-24T14:59:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/10/24/git-server-gitlabhq</id>
+    <id>http://blog.librakyle.com/blog/2012/10/24/git-server-gitlabhq</id>
     <content type="html"><![CDATA[<p>这几天在Ubuntu系统下搭建好了Git服务器，采用开源的<a href="https://github.com/gitlabhq/gitlabhq/">Gitlab</a>。
 由于Gitlab更新频率挺快，参考官方文档还是相当靠谱的，这里只是简单记录几笔。</p>
 
@@ -1222,9 +1222,9 @@
 
 <ul>
 <li><p>如果文件名称或者路径名包含中文，在Gitlab页面上不能正常查看文件内容。
-<img class="center" src="http://librakyle.github.com/blog/images/png/gitlab-file.png" title="Gitlab File Show Error" alt="Gitlab File Show Error"></p></li>
+<img class="center" src="http://blog.librakyle.com/images/png/gitlab-file.png" title="Gitlab File Show Error" alt="Gitlab File Show Error"></p></li>
 <li><p>如果Git提交中的文件名称包含中文，那么该文件无法显示修改对比。
-<img class="center" src="http://librakyle.github.com/blog/images/png/gitlab-commit.png" title="Gitlab Commit Show Error" alt="Gitlab Commit Show Error"></p></li>
+<img class="center" src="http://blog.librakyle.com/images/png/gitlab-commit.png" title="Gitlab Commit Show Error" alt="Gitlab Commit Show Error"></p></li>
 </ul>
 
 ]]></content>
@@ -1232,9 +1232,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git部分命令说明]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/10/18/git-usage/"/>
+    <link href="http://blog.librakyle.com/blog/2012/10/18/git-usage/"/>
     <updated>2012-10-18T14:33:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/10/18/git-usage</id>
+    <id>http://blog.librakyle.com/blog/2012/10/18/git-usage</id>
     <content type="html"><![CDATA[<p>开始研究Git，<a href="http://www.worldhello.net/gotgit/">《Git权威指南》</a>这本书看了一部分了，觉得讲解的挺详细挺好的。
 记录部分Git命令，方便查找。</p>
 
@@ -1391,9 +1391,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress Plugins 使用样例]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/10/17/octopress-plugins/"/>
+    <link href="http://blog.librakyle.com/blog/2012/10/17/octopress-plugins/"/>
     <updated>2012-10-17T10:20:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/10/17/octopress-plugins</id>
+    <id>http://blog.librakyle.com/blog/2012/10/17/octopress-plugins</id>
     <content type="html"><![CDATA[<p>参考<a href="http://octopress.org">Octopress</a>的说明文档，记录下使用Octopress插件的部分样例，方便以后查找。</p>
 
 <!--more-->
@@ -1418,7 +1418,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<figure class='code'><figcaption><span>Test (test.cpp)</span> <a href='http://librakyle.github.com/blog/downloads/code/test.cpp'>download</a></figcaption>
+<figure class='code'><figcaption><span>Test (test.cpp)</span> <a href='http://blog.librakyle.com/downloads/code/test.cpp'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1460,7 +1460,7 @@ int main(int argc, char *argv[])
 
 <h3>显示图片</h3>
 
-<p><img class="center" src="http://librakyle.github.com/blog/images/Basset-Hound.png" width="300" height="300" title="Basset-Hound" alt="Basset-Hound"></p>
+<p><img class="center" src="http://blog.librakyle.com/images/Basset-Hound.png" width="300" height="300" title="Basset-Hound" alt="Basset-Hound"></p>
 
 <h3>显示视频</h3>
 

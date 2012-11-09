@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Tag: Git | LibraKyle Home]]></title>
-  <link href="http://librakyle.github.com/blog/blog/tags/0bcc7010/atom.xml" rel="self"/>
-  <link href="http://librakyle.github.com/blog/"/>
-  <updated>2012-11-09T14:49:23+08:00</updated>
-  <id>http://librakyle.github.com/blog/</id>
+  <link href="http://blog.librakyle.com/blog/tags/0bcc7010/atom.xml" rel="self"/>
+  <link href="http://blog.librakyle.com/"/>
+  <updated>2012-11-09T14:53:05+08:00</updated>
+  <id>http://blog.librakyle.com/</id>
   <author>
     <name><![CDATA[LibraKyle]]></name>
     <email><![CDATA[librakyle@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git服务器搭建—Gitlab]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/10/24/git-server-gitlabhq/"/>
+    <link href="http://blog.librakyle.com/blog/2012/10/24/git-server-gitlabhq/"/>
     <updated>2012-10-24T14:59:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/10/24/git-server-gitlabhq</id>
+    <id>http://blog.librakyle.com/blog/2012/10/24/git-server-gitlabhq</id>
     <content type="html"><![CDATA[<p>这几天在Ubuntu系统下搭建好了Git服务器，采用开源的<a href="https://github.com/gitlabhq/gitlabhq/">Gitlab</a>。
 由于Gitlab更新频率挺快，参考官方文档还是相当靠谱的，这里只是简单记录几笔。</p>
 
@@ -63,9 +63,9 @@ sudo /etc/init.d/gitlab restart
   
   <entry>
     <title type="html"><![CDATA[Git部分命令说明]]></title>
-    <link href="http://librakyle.github.com/blog/blog/2012/10/18/git-usage/"/>
+    <link href="http://blog.librakyle.com/blog/2012/10/18/git-usage/"/>
     <updated>2012-10-18T14:33:00+08:00</updated>
-    <id>http://librakyle.github.com/blog/blog/2012/10/18/git-usage</id>
+    <id>http://blog.librakyle.com/blog/2012/10/18/git-usage</id>
     <content type="html"><![CDATA[<p>开始研究Git，<a href="http://www.worldhello.net/gotgit/">《Git权威指南》</a>这本书看了一部分了，觉得讲解的挺详细挺好的。
 记录部分Git命令，方便查找。</p>
 
