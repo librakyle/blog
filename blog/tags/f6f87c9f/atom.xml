@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: C++ | LibraKyle Home]]></title>
   <link href="http://blog.librakyle.com/blog/tags/f6f87c9f/atom.xml" rel="self"/>
   <link href="http://blog.librakyle.com/"/>
-  <updated>2012-11-09T16:55:11+08:00</updated>
+  <updated>2012-11-09T16:57:52+08:00</updated>
   <id>http://blog.librakyle.com/</id>
   <author>
     <name><![CDATA[LibraKyle]]></name>
@@ -20,7 +20,12 @@
     <id>http://blog.librakyle.com/blog/2012/11/09/speed-up-compilation</id>
     <content type="html"><![CDATA[<p>前几天研究Makefile文件，对gcc/g++是如何编译链接程序的过程有了基本认识，
 回想以前自己写程序时的一些不好的习惯，整理出来了一个能够加快编译速度的方法，
-记录在这里供大家参考。请看下面的代码：</p>
+记录在这里供大家参考。</p>
+
+<!-- more -->
+
+
+<p>请看下面的代码：</p>
 
 <p>```
 // Print.h

@@ -11,24 +11,7 @@
   
   <meta name="description" content="前几天研究Makefile文件，对gcc/g++是如何编译链接程序的过程有了基本认识，
 回想以前自己写程序时的一些不好的习惯，整理出来了一个能够加快编译速度的方法，
-记录在这里供大家参考。请看下面的代码： 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18 &hellip;">
+记录在这里供大家参考。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -118,155 +101,14 @@
 
   <div class="entry-content"><p>前几天研究Makefile文件，对gcc/g++是如何编译链接程序的过程有了基本认识，
 回想以前自己写程序时的一些不好的习惯，整理出来了一个能够加快编译速度的方法，
-记录在这里供大家参考。请看下面的代码：</p>
+记录在这里供大家参考。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// Print.h
-</span><span class='line'>class Print {
-</span><span class='line'>public:
-</span><span class='line'>    void PrintInt(int data);
-</span><span class='line'>};
-</span><span class='line'>
-</span><span class='line'>// Print.cpp
-</span><span class='line'>#include "Print.h"
-</span><span class='line'>#include &lt;iostream&gt;
-</span><span class='line'>void Print::PrintInt(int data) {
-</span><span class='line'>    std::cout &lt;&lt; data &lt;&lt; std::endl;
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>// Compute.h
-</span><span class='line'>#include "Print.h"
-</span><span class='line'>class Compute {
-</span><span class='line'>public:
-</span><span class='line'>    int Add(int a, int b);
-</span><span class='line'>private:
-</span><span class='line'>    Print print;
-</span><span class='line'>};
-</span><span class='line'>
-</span><span class='line'>// Compute.cpp
-</span><span class='line'>#include "Compute.h"
-</span><span class='line'>int Compute::Add(int a, int b) {
-</span><span class='line'>    int c = a + b;
-</span><span class='line'>    print.PrintInt(c);
-</span><span class='line'>    return c;
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>// Test.h
-</span><span class='line'>#include "Compute.h"
-</span><span class='line'>class Test {
-</span><span class='line'>public:
-</span><span class='line'>    void TestAdd();
-</span><span class='line'>private:
-</span><span class='line'>    Compute compute;
-</span><span class='line'>};
-</span><span class='line'>
-</span><span class='line'>// Test.cpp
-</span><span class='line'>#include "Test.h"
-</span><span class='line'>void Test::TestAdd()
-</span><span class='line'>{
-</span><span class='line'>    compute.Add(123, 456);
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>// Main.cpp
-</span><span class='line'>#include "Test.h"
-</span><span class='line'>int main()
-</span><span class='line'>{
-</span><span class='line'>    Test test;
-</span><span class='line'>    test.TestAdd();
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>代码中包含三个类Print、Compute、Test，其中Test需要调用Compute类，Compute类需要调用Print类。
-编译链接的顺序如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>根据Print.h、Print.cpp编译得到Print.o
-</span><span class='line'>根据Print.h、Compute.h、Compute.cpp编译得到Compute.o
-</span><span class='line'>根据Print.h、Compute.h、Test.h、Test.cpp编译得到Test.o
-</span><span class='line'>根据Print.h、Compute.h、Test.h、Main.cpp编译得到Main.o
-</span><span class='line'>根据Print.o、Compute.o、Test.o、Maino链接得到Main(.exe)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>一旦我们对Print.h文件进行了修改，那么上述所有的编译链接操作，都是需要重新再做一遍。
-上述程序的结构非常不利与大型项目，当类文件越来越多的时候，每次修改程序后的编译时间将是噩梦。</p>
-
-<p>我们回过头来，再观察一下上述五个步骤。由于Print.h更改了，第(1)步肯定是需要重做的，
-Compute类会调用Print类，第(2)步也是需要重做的，
-因为Print.o的重新编译使得最后第(5)步链接操作也是需要重做的。
-那么剩下的第(3)(4)步是否可以优化掉了？</p>
-
-<p>答案是显然的。Test.cpp和Main.cpp都是因为Compute.h头文件，间接依赖于Print.h头文件。
-只要Compute.h头文件中不要包含Print.h头文件，也就是将包含Print.h的include代码
-移动到Compute.cpp中，那么对Print.h的修改，就不会对Test.cpp和Main.cpp有影响了，
-也就是说Test.o和Main.o就不需要重新编译了。</p>
-
-<p>也许有人会有疑问， 如果将包含Print.h的include代码移动到Compute.cpp中，
-那么Compute.h的成员变量Print print不就没有定义了吗？
-没错，上述问题确实存在，但是我们可以将成员变量Print print更改为指针形式
-<code>Print *print</code>，同时在Compute.h文件中加入声明<code>class Print;</code>就可以完美的解决上述问题了。</p>
-
-<p>在大型项目中，如果所有的程序在编写过程中都使用上述方法，
-那么单独修改几个文件，不会导致整个项目的重新编译，从而能够大大提高编译速度。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/11/09/speed-up-compilation/">Read More &rarr;</a>
+    </footer>
   
 
 
