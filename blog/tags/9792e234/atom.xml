@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Gitlab | LibraKyle Home]]></title>
+  <link href="http://librakyle.github.com/blog/blog/tags/9792e234/atom.xml" rel="self"/>
+  <link href="http://librakyle.github.com/blog/"/>
+  <updated>2012-11-09T13:41:16+08:00</updated>
+  <id>http://librakyle.github.com/blog/</id>
+  <author>
+    <name><![CDATA[LibraKyle]]></name>
+    <email><![CDATA[librakyle@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git服务器搭建—Gitlab]]></title>
+    <link href="http://librakyle.github.com/blog/blog/2012/10/24/git-server-gitlabhq/"/>
+    <updated>2012-10-24T14:59:00+08:00</updated>
+    <id>http://librakyle.github.com/blog/blog/2012/10/24/git-server-gitlabhq</id>
+    <content type="html"><![CDATA[<p>这几天在Ubuntu系统下搭建好了Git服务器，采用开源的<a href="https://github.com/gitlabhq/gitlabhq/">Gitlab</a>。
+由于Gitlab更新频率挺快，参考官方文档还是相当靠谱的，这里只是简单记录几笔。</p>
+
+<!-- more -->
+
+
+<h3>Gitlab安装相关</h3>
+
+<p>安装过程中需要修改Gitlab的配置文件。
+```</p>
+
+<h1>web:host, eamil:from, git_host:admin_url host</h1>
+
+<p>sudo vim /etc/nginx/sites-enabled/gitlab</p>
+
+<h1>listen, server_name</h1>
+
+<p>sudo vim /home/gitlab/gitlab/config/gitlab.yml
+```</p>
+
+<p>安装完成之后，需要运行如下命令来使得Gitolite认可当前域名，切记切记！！！
+<code>
+sudo -u gitlab -H git clone git@[server_name]:gitolite-admin.git /tmp/gitolite-admin
+</code></p>
+
+<p>在Gitlab上新建项目可能需要较长时间，需要耐心等待。想要重启Gitlab服务，可以使用如下命令：
+<code>
+sudo /etc/init.d/nginx restart
+sudo /etc/init.d/gitlab restart
+</code></p>
+
+<h3><a href="https://github.com/gitlabhq/gitlabhq/issues/1780">未解决的问题</a></h3>
+
+<ul>
+<li><p>如果文件名称或者路径名包含中文，在Gitlab页面上不能正常查看文件内容。
+<img class="center" src="/images/png/gitlab-file.png" title="Gitlab File Show Error" alt="Gitlab File Show Error"></p></li>
+<li><p>如果Git提交中的文件名称包含中文，那么该文件无法显示修改对比。
+<img class="center" src="/images/png/gitlab-commit.png" title="Gitlab Commit Show Error" alt="Gitlab Commit Show Error"></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

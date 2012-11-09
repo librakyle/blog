@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: VirtualBox | LibraKyle Home]]></title>
+  <link href="http://librakyle.github.com/blog/blog/tags/e8e4d1f0/atom.xml" rel="self"/>
+  <link href="http://librakyle.github.com/blog/"/>
+  <updated>2012-11-09T13:41:16+08:00</updated>
+  <id>http://librakyle.github.com/blog/</id>
+  <author>
+    <name><![CDATA[LibraKyle]]></name>
+    <email><![CDATA[librakyle@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu配置]]></title>
+    <link href="http://librakyle.github.com/blog/blog/2012/10/25/ubuntu-config/"/>
+    <updated>2012-10-25T13:01:00+08:00</updated>
+    <id>http://librakyle.github.com/blog/blog/2012/10/25/ubuntu-config</id>
+    <content type="html"><![CDATA[<p>记录下VirtualBox下安装Ubuntu虚拟机的一些配置。</p>
+
+<h3>配置Ubuntu</h3>
+
+<h4>安装右键终端</h4>
+
+<p><code>
+sudo apt-get install nautilus-open-terminal
+</code></p>
+
+<h4>桌面中文问题</h4>
+
+<p><code>
+vim ～/.config/user-dirs.dirs
+XDG_DESKTOP_DIR="$HOME/"
+XDG_DOWNLOAD_DIR="$HOME/"
+XDG_TEMPLATES_DIR="$HOME/"
+XDG_PUBLICSHARE_DIR="$HOME/"
+XDG_DOCUMENTS_DIR="$HOME/"
+XDG_MUSIC_DIR="$HOME/"
+XDG_PICTURES_DIR="$HOME/"
+XDG_VIDEOS_DIR="$HOME/"
+</code></p>
+
+<!-- more -->
+
+
+<h4>软件源</h4>
+
+<p><code>
+sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+gedit /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get upgrade
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

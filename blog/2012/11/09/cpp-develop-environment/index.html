@@ -1,0 +1,1361 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="zh-cn"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>C++ 开发环境 - LibraKyle Home</title>
+  <meta name="author" content="LibraKyle">
+
+  
+  <meta name="description" content="最近安装Ubuntu后，开始折腾Ubuntu下的C++开发环境:
+编辑器选择的是Vim，编译C++程序选择的是g++，并自己去写Makefile文件，
+调试程序选择GDB。 Vim 采用vundle來管理vim的各种插件，配置文件如下： (.vimrc) download 1
+2
+3
+4
+5
+6 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://librakyle.github.com/blog/blog/2012/11/09/cpp-develop-environment/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="LibraKyle Home" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">LibraKyle Home</a></h1>
+  
+    <h2>4B 79 6C 65 20 6C 6F 76 65 73 20 46 65 6C 69 63 69 61 21</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:librakyle.github.com/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">C++ 开发环境</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-09T09:53:00+08:00" pubdate data-updated="true">Nov 9<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>最近安装Ubuntu后，开始折腾Ubuntu下的C++开发环境:
+编辑器选择的是Vim，编译C++程序选择的是g++，并自己去写Makefile文件，
+调试程序选择GDB。</p>
+
+<!-- more -->
+
+
+<h4>Vim</h4>
+
+<p>采用vundle來管理vim的各种插件，配置文件如下：</p>
+
+<figure class='code'><figcaption><span> (.vimrc)</span> <a href='/downloads/code/.vimrc'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+<span class='line-number'>193</span>
+<span class='line-number'>194</span>
+<span class='line-number'>195</span>
+<span class='line-number'>196</span>
+<span class='line-number'>197</span>
+<span class='line-number'>198</span>
+<span class='line-number'>199</span>
+<span class='line-number'>200</span>
+<span class='line-number'>201</span>
+<span class='line-number'>202</span>
+<span class='line-number'>203</span>
+<span class='line-number'>204</span>
+<span class='line-number'>205</span>
+<span class='line-number'>206</span>
+<span class='line-number'>207</span>
+<span class='line-number'>208</span>
+<span class='line-number'>209</span>
+<span class='line-number'>210</span>
+<span class='line-number'>211</span>
+<span class='line-number'>212</span>
+<span class='line-number'>213</span>
+<span class='line-number'>214</span>
+<span class='line-number'>215</span>
+<span class='line-number'>216</span>
+<span class='line-number'>217</span>
+<span class='line-number'>218</span>
+<span class='line-number'>219</span>
+<span class='line-number'>220</span>
+<span class='line-number'>221</span>
+<span class='line-number'>222</span>
+<span class='line-number'>223</span>
+<span class='line-number'>224</span>
+<span class='line-number'>225</span>
+<span class='line-number'>226</span>
+<span class='line-number'>227</span>
+<span class='line-number'>228</span>
+<span class='line-number'>229</span>
+<span class='line-number'>230</span>
+<span class='line-number'>231</span>
+<span class='line-number'>232</span>
+<span class='line-number'>233</span>
+<span class='line-number'>234</span>
+<span class='line-number'>235</span>
+<span class='line-number'>236</span>
+<span class='line-number'>237</span>
+<span class='line-number'>238</span>
+<span class='line-number'>239</span>
+<span class='line-number'>240</span>
+<span class='line-number'>241</span>
+<span class='line-number'>242</span>
+<span class='line-number'>243</span>
+<span class='line-number'>244</span>
+</pre></td><td class='code'><pre><code class='ini'><span class='line'><span class="na">let mapleader</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">vundle管理插件</span>
+</span><span class='line'><span class="err">set</span> <span class="err">nocompatible</span>               <span class="err">&quot;</span> <span class="err">be</span> <span class="err">iMproved</span>
+</span><span class='line'><span class="err">filetype</span> <span class="err">off</span>                   <span class="err">&quot;</span> <span class="err">required!</span>
+</span><span class='line'><span class="na">set rtp+</span><span class="o">=</span><span class="s">~/.vim/bundle/vundle/</span>
+</span><span class='line'><span class="err">call</span> <span class="err">vundle</span><span class="c">#rc()</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">let</span> <span class="err">Vundle</span> <span class="err">manage</span> <span class="err">Vundle</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">required!</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;gmarik/vundle&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">标签列表</span>
+</span><span class='line'><span class="na">let Tlist_Compact_Format</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">&quot; let Tlist_Close_On_Select</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">&quot; let Tlist_Process_File_Always</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">&quot; let Tlist_Show_One_File</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let Tlist_Exit_OnlyWindow</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="err">nnoremap</span> <span class="err">&lt;silent&gt;</span> <span class="err">&lt;F8&gt;</span> <span class="err">:TlistToggle&lt;CR&gt;</span>
+</span><span class='line'><span class="err">nmap</span> <span class="err">&lt;leader&gt;wl</span> <span class="err">:TlistToggle&lt;CR&gt;</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;taglist.vim&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">浏览文件</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">autocmd</span> <span class="err">vimenter</span> <span class="err">*</span> <span class="err">NERDTree</span>
+</span><span class='line'><span class="err">nnoremap</span> <span class="err">&lt;silent&gt;</span> <span class="err">&lt;F7&gt;</span> <span class="err">:NERDTreeAuto&lt;CR&gt;</span>
+</span><span class='line'><span class="err">nmap</span> <span class="err">&lt;leader&gt;wt</span> <span class="err">:NERDTreeAuto&lt;CR&gt;</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;scrooloose/nerdtree&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">语法高亮风格</span>
+</span><span class='line'><span class="err">&quot;Bundle</span> <span class="err">&#39;molokai&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">切换打开的文件</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">noremap</span> <span class="err">&lt;TAB&gt;</span>   <span class="err">:call</span> <span class="err">&lt;SID&gt;CycleBuffer(1)&lt;CR&gt;:&lt;BS&gt;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">noremap</span> <span class="err">&lt;S-TAB&gt;</span> <span class="err">:call</span> <span class="err">&lt;SID&gt;CycleBuffer(0)&lt;CR&gt;:&lt;BS&gt;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">nmap</span> <span class="err">&lt;leader&gt;wn</span> <span class="err">:call</span> <span class="err">&lt;SID&gt;CycleBuffer(1)&lt;CR&gt;:&lt;BS&gt;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">nmap</span> <span class="err">&lt;leader&gt;wp</span> <span class="err">:call</span> <span class="err">&lt;SID&gt;CycleBuffer(0)&lt;CR&gt;:&lt;BS&gt;</span>
+</span><span class='line'><span class="na">let g:miniBufExplMapWindowNavVim</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let g:miniBufExplMapWindowNavArrows</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let g:miniBufExplMapCTabSwitchBufs</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let g:miniBufExplModSelTarget</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let g:miniBufExplMapWindowNavVim</span> <span class="o">=</span> <span class="s">1 </span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;fholgado/minibufexpl.vim&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">切换.h和.cpp文件</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;a.vim&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">自动补全</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;honza/snipmate-snippets&#39;</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;snipMate&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">代码提示</span>
+</span><span class='line'><span class="na">let OmniCpp_GlobalScopeSearch</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let OmniCpp_NamespaceSearch</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let OmniCpp_ShowAccess</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let OmniCpp_MayCompleteDot</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let OmniCpp_MayCompleteArrow</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let OmniCpp_MayCompleteScope</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let OmniCpp_DefaultNamespaces</span> <span class="o">=</span> <span class="s">[&quot;std&quot;, &quot;_GLIBCXX_STD&quot;]</span>
+</span><span class='line'><span class="na">autocmd CursorMovedI * if pumvisible()</span> <span class="o">=</span><span class="s">= 0|pclose|endif</span>
+</span><span class='line'><span class="na">autocmd InsertLeave * if pumvisible()</span> <span class="o">=</span><span class="s">= 0|pclose|endif</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;OmniCppComplete&#39;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Disable</span> <span class="err">AutoComplPop.</span>
+</span><span class='line'><span class="na">let g:acp_enableAtStartup</span> <span class="o">=</span> <span class="s">0</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Use</span> <span class="err">neocomplcache.</span>
+</span><span class='line'><span class="na">let g:neocomplcache_enable_at_startup</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Use</span> <span class="err">smartcase.</span>
+</span><span class='line'><span class="na">let g:neocomplcache_enable_smart_case</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Use</span> <span class="err">camel</span> <span class="err">case</span> <span class="err">completion.</span>
+</span><span class='line'><span class="na">let g:neocomplcache_enable_camel_case_completion</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Use</span> <span class="err">underbar</span> <span class="err">completion.</span>
+</span><span class='line'><span class="na">let g:neocomplcache_enable_underbar_completion</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Set</span> <span class="err">minimum</span> <span class="err">syntax</span> <span class="err">keyword</span> <span class="err">length.</span>
+</span><span class='line'><span class="na">let g:neocomplcache_min_syntax_length</span> <span class="o">=</span> <span class="s">3</span>
+</span><span class='line'><span class="na">let g:neocomplcache_lock_buffer_name_pattern</span> <span class="o">=</span> <span class="s">&#39;\*ku\*&#39;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Define</span> <span class="err">dictionary.</span>
+</span><span class='line'><span class="na">let g:neocomplcache_dictionary_filetype_lists</span> <span class="o">=</span> <span class="s">{</span>
+</span><span class='line'><span class="s">    \ &#39;default&#39; : &#39;&#39;,</span>
+</span><span class='line'><span class="s">    \ &#39;vimshell&#39; : $HOME.&#39;/.vimshell_hist&#39;,</span>
+</span><span class='line'><span class="s">    \ &#39;scheme&#39; : $HOME.&#39;/.gosh_completions&#39;</span>
+</span><span class='line'><span class="s">    \ }</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Define</span> <span class="err">keyword.</span>
+</span><span class='line'><span class="err">if</span> <span class="err">!exists(&#39;g:neocomplcache_keyword_patterns&#39;)</span>
+</span><span class='line'>  <span class="na">let g:neocomplcache_keyword_patterns</span> <span class="o">=</span> <span class="s">{}</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'><span class="na">let g:neocomplcache_keyword_patterns[&#39;default&#39;]</span> <span class="o">=</span> <span class="s">&#39;\h\w*&#39;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Plugin</span> <span class="err">key-mappings.</span>
+</span><span class='line'><span class="err">imap</span> <span class="err">&lt;C-k&gt;</span>     <span class="err">&lt;Plug&gt;(neocomplcache_snippets_expand)</span>
+</span><span class='line'><span class="err">smap</span> <span class="err">&lt;C-k&gt;</span>     <span class="err">&lt;Plug&gt;(neocomplcache_snippets_expand)</span>
+</span><span class='line'><span class="err">inoremap</span> <span class="err">&lt;expr&gt;&lt;C-g&gt;</span>     <span class="err">neocomplcache</span><span class="c">#undo_completion()</span>
+</span><span class='line'><span class="err">inoremap</span> <span class="err">&lt;expr&gt;&lt;C-l&gt;</span>     <span class="err">neocomplcache</span><span class="c">#complete_common_string()</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">SuperTab</span> <span class="err">like</span> <span class="err">snippets</span> <span class="err">behavior.</span>
+</span><span class='line'><span class="err">&quot;imap</span> <span class="err">&lt;expr&gt;&lt;TAB&gt;</span> <span class="err">neocomplcache</span><span class="c">#sources#snippets_complete#expandable() ? &quot;\&lt;Plug&gt;(neocomplcache_snippets_expand)&quot; : pumvisible() ? &quot;\&lt;C-n&gt;&quot; : &quot;\&lt;TAB&gt;&quot;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Recommended</span> <span class="err">key-mappings.</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">&lt;CR&gt;:</span> <span class="err">close</span> <span class="err">popup</span> <span class="err">and</span> <span class="err">save</span> <span class="err">indent.</span>
+</span><span class='line'><span class="err">inoremap</span> <span class="err">&lt;expr&gt;&lt;CR&gt;</span>  <span class="err">neocomplcache</span><span class="c">#smart_close_popup() . &quot;\&lt;CR&gt;&quot;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">&lt;TAB&gt;:</span> <span class="err">completion.</span>
+</span><span class='line'><span class="err">inoremap</span> <span class="err">&lt;expr&gt;&lt;TAB&gt;</span>  <span class="err">pumvisible()</span> <span class="err">?</span> <span class="err">&quot;\&lt;C-n&gt;&quot;</span> <span class="err">:</span> <span class="err">&quot;\&lt;TAB&gt;&quot;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">&lt;C-h&gt;,</span> <span class="err">&lt;BS&gt;:</span> <span class="err">close</span> <span class="err">popup</span> <span class="err">and</span> <span class="err">delete</span> <span class="err">backword</span> <span class="err">char.</span>
+</span><span class='line'><span class="err">inoremap</span> <span class="err">&lt;expr&gt;&lt;C-h&gt;</span> <span class="err">neocomplcache</span><span class="c">#smart_close_popup().&quot;\&lt;C-h&gt;&quot;</span>
+</span><span class='line'><span class="err">inoremap</span> <span class="err">&lt;expr&gt;&lt;BS&gt;</span> <span class="err">neocomplcache</span><span class="c">#smart_close_popup().&quot;\&lt;C-h&gt;&quot;</span>
+</span><span class='line'><span class="err">inoremap</span> <span class="err">&lt;expr&gt;&lt;C-y&gt;</span>  <span class="err">neocomplcache</span><span class="c">#close_popup()</span>
+</span><span class='line'><span class="err">inoremap</span> <span class="err">&lt;expr&gt;&lt;C-e&gt;</span>  <span class="err">neocomplcache</span><span class="c">#cancel_popup()</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">AutoComplPop</span> <span class="err">like</span> <span class="err">behavior.</span>
+</span><span class='line'><span class="na">&quot;let g:neocomplcache_enable_auto_select</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Shell</span> <span class="err">like</span> <span class="err">behavior(not</span> <span class="err">recommended).</span>
+</span><span class='line'><span class="na">&quot;set completeopt+</span><span class="o">=</span><span class="s">longest</span>
+</span><span class='line'><span class="na">&quot;let g:neocomplcache_enable_auto_select</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">&quot;let g:neocomplcache_disable_auto_complete</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="err">&quot;inoremap</span> <span class="err">&lt;expr&gt;&lt;TAB&gt;</span>  <span class="err">pumvisible()</span> <span class="err">?</span> <span class="err">&quot;\&lt;Down&gt;&quot;</span> <span class="err">:</span> <span class="err">&quot;\&lt;TAB&gt;&quot;</span>
+</span><span class='line'><span class="err">&quot;inoremap</span> <span class="err">&lt;expr&gt;&lt;CR&gt;</span>  <span class="err">neocomplcache</span><span class="c">#smart_close_popup() . &quot;\&lt;CR&gt;&quot;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Enable</span> <span class="err">omni</span> <span class="err">completion.</span>
+</span><span class='line'><span class="na">autocmd FileType css setlocal omnifunc</span><span class="o">=</span><span class="s">csscomplete#CompleteCSS</span>
+</span><span class='line'><span class="na">autocmd FileType html,markdown setlocal omnifunc</span><span class="o">=</span><span class="s">htmlcomplete#CompleteTags</span>
+</span><span class='line'><span class="na">autocmd FileType javascript setlocal omnifunc</span><span class="o">=</span><span class="s">javascriptcomplete#CompleteJS</span>
+</span><span class='line'><span class="na">autocmd FileType python setlocal omnifunc</span><span class="o">=</span><span class="s">pythoncomplete#Complete</span>
+</span><span class='line'><span class="na">autocmd FileType xml setlocal omnifunc</span><span class="o">=</span><span class="s">xmlcomplete#CompleteTags</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Enable</span> <span class="err">heavy</span> <span class="err">omni</span> <span class="err">completion.</span>
+</span><span class='line'><span class="err">if</span> <span class="err">!exists(&#39;g:neocomplcache_omni_patterns&#39;)</span>
+</span><span class='line'>  <span class="na">let g:neocomplcache_omni_patterns</span> <span class="o">=</span> <span class="s">{}</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'><span class="na">let g:neocomplcache_omni_patterns.ruby</span> <span class="o">=</span> <span class="s">&#39;[^. *\t]\.\w*\|\h\w*::&#39;</span>
+</span><span class='line'><span class="na">&quot;autocmd FileType ruby setlocal omnifunc</span><span class="o">=</span><span class="s">rubycomplete#Complete</span>
+</span><span class='line'><span class="na">let g:neocomplcache_omni_patterns.php</span> <span class="o">=</span> <span class="s">&#39;[^. \t]-&gt;\h\w*\|\h\w*::&#39;</span>
+</span><span class='line'><span class="na">let g:neocomplcache_omni_patterns.c</span> <span class="o">=</span> <span class="s">&#39;\%(\.\|-&gt;\)\h\w*&#39;</span>
+</span><span class='line'><span class="na">let g:neocomplcache_omni_patterns.cpp</span> <span class="o">=</span> <span class="s">&#39;\h\w*\%(\.\|-&gt;\)\h\w*\|\h\w*::&#39;</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;Shougo/neocomplcache&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">函数参数提示</span>
+</span><span class='line'><span class="na">let g:EchoFuncLangsUsed</span> <span class="o">=</span> <span class="s">[&quot;java&quot;,&quot;cpp&quot;]</span>
+</span><span class='line'><span class="na">let g:EchoFuncKeyNext</span> <span class="o">=</span> <span class="s">&quot;&lt;c-n&gt;&quot;</span>
+</span><span class='line'><span class="na">let g:EchoFuncKeyPrev</span> <span class="o">=</span> <span class="s">&quot;&lt;c-p&gt;&quot;</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;mbbill/echofunc&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">代码风格</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;google.vim&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Markdown语法高亮</span>
+</span><span class='line'><span class="err">&quot;Bundle</span> <span class="err">&#39;plasticboy/vim-markdown&#39;</span>
+</span><span class='line'><span class="err">&quot;Bundle</span> <span class="err">&#39;Markdown&#39;</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;hallison/vim-markdown&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">查找</span>
+</span><span class='line'><span class="err">set</span> <span class="err">cscopetag</span>
+</span><span class='line'><span class="err">set</span> <span class="err">cscopeverbose</span>
+</span><span class='line'><span class="na">set csto</span><span class="o">=</span><span class="s">0</span>
+</span><span class='line'><span class="na">map &lt;F12&gt; :!ctags -R --c++-kinds</span><span class="o">=</span><span class="s">+p --fields=+iaS --extra=+q .&lt;CR&gt;&lt;CR&gt;:CscopeGen&lt;CR&gt;&lt;CR&gt;</span>
+</span><span class='line'><span class="na">nmap &lt;Leader&gt;wc :!ctags -R --c++-kinds</span><span class="o">=</span><span class="s">+p --fields=+iaS --extra=+q .&lt;CR&gt;&lt;CR&gt;:CscopeGen&lt;CR&gt;&lt;CR&gt;</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;brookhong/cscope.vim&#39;</span>
+</span><span class='line'><span class="err">&quot;Bundle</span> <span class="err">&#39;cscope_macros.vim&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">注释</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;scrooloose/nerdcommenter&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">项目</span>
+</span><span class='line'><span class="err">nmap</span> <span class="err">&lt;leader&gt;wj</span> <span class="err">:Project</span> <span class="err">.vimprojects&lt;CR&gt;\C</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;project.tar.gz&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">自动创建目录</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;DataWraith/auto_mkdir&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">打开终端</span>
+</span><span class='line'><span class="err">nmap</span> <span class="err">&lt;leader&gt;tt</span> <span class="err">:ConqueTerm</span> <span class="err">bash</span> <span class="err">&lt;CR&gt;&lt;CR&gt;</span>
+</span><span class='line'><span class="err">nmap</span> <span class="err">&lt;leader&gt;ts</span> <span class="err">:ConqueTermSplit</span> <span class="err">bash</span> <span class="err">&lt;CR&gt;&lt;CR&gt;</span>
+</span><span class='line'><span class="err">nmap</span> <span class="err">&lt;leader&gt;tv</span> <span class="err">:ConqueTermVSplit</span> <span class="err">bash</span> <span class="err">&lt;CR&gt;&lt;CR&gt;</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;Conque-Shell&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">显示缩进</span>
+</span><span class='line'><span class="na">&quot;let g:indent_guides_enable_on_vim_startup</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let g:indent_guides_auto_colors</span> <span class="o">=</span> <span class="s">0</span>
+</span><span class='line'><span class="na">let g:indent_guides_guide_size</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'><span class="na">let g:indent_guides_start_level</span> <span class="o">=</span> <span class="s">2</span>
+</span><span class='line'><span class="na">autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg</span><span class="o">=</span><span class="s">4</span>
+</span><span class='line'><span class="na">autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg</span><span class="o">=</span><span class="s">5</span>
+</span><span class='line'><span class="err">Bundle</span> <span class="err">&#39;nathanaelkane/vim-indent-guides&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">sudo时仍然使用本配置</span>
+</span><span class='line'><span class="err">&quot;Bundle</span> <span class="err">&#39;sudo.vim&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">filetype</span> <span class="err">plugin</span> <span class="err">indent</span> <span class="err">on</span>     <span class="err">&quot;</span> <span class="err">required!</span>
+</span><span class='line'><span class="err">&quot;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">Brief</span> <span class="err">help</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">:BundleList</span>          <span class="err">-</span> <span class="err">list</span> <span class="err">configured</span> <span class="err">bundles</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">:BundleInstall(!)</span>    <span class="err">-</span> <span class="err">install(update)</span> <span class="err">bundles</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">:BundleSearch(!)</span> <span class="err">foo</span> <span class="err">-</span> <span class="err">search(or</span> <span class="err">refresh</span> <span class="err">cache</span> <span class="err">first)</span> <span class="err">for</span> <span class="err">foo</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">:BundleClean(!)</span>      <span class="err">-</span> <span class="err">confirm(or</span> <span class="err">auto-approve)</span> <span class="err">removal</span> <span class="err">of</span> <span class="err">unused</span> <span class="err">bundles</span>
+</span><span class='line'><span class="err">&quot;</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">see</span> <span class="err">:h</span> <span class="err">vundle</span> <span class="err">for</span> <span class="err">more</span> <span class="err">details</span> <span class="err">or</span> <span class="err">wiki</span> <span class="err">for</span> <span class="err">FAQ</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">NOTE:</span> <span class="err">comments</span> <span class="err">after</span> <span class="err">Bundle</span> <span class="err">command</span> <span class="err">are</span> <span class="err">not</span> <span class="err">allowed..</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">添加行号</span>
+</span><span class='line'><span class="err">set</span> <span class="err">number</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">搜索</span>
+</span><span class='line'><span class="err">set</span> <span class="err">hlsearch</span>
+</span><span class='line'><span class="err">set</span> <span class="err">incsearch</span>
+</span><span class='line'><span class="err">set</span> <span class="err">ignorecase</span>
+</span><span class='line'><span class="err">set</span> <span class="err">smartcase</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">空格</span>
+</span><span class='line'><span class="na">set backspace</span><span class="o">=</span><span class="s">indent,start</span>
+</span><span class='line'><span class="err">set</span> <span class="err">nowrap</span>
+</span><span class='line'><span class="na">set tabstop</span><span class="o">=</span><span class="s">4</span>
+</span><span class='line'><span class="na">set shiftwidth</span><span class="o">=</span><span class="s">4</span>
+</span><span class='line'><span class="err">set</span> <span class="err">expandtab</span>
+</span><span class='line'><span class="na">set list listchars</span><span class="o">=</span><span class="s">tab:\ \ ,trail:.</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">语法高亮</span>
+</span><span class='line'><span class="err">syntax</span> <span class="err">enable</span>
+</span><span class='line'><span class="err">syntax</span> <span class="err">on</span>
+</span><span class='line'><span class="err">colorscheme</span> <span class="err">default</span>
+</span><span class='line'><span class="na">set background</span><span class="o">=</span><span class="s">dark</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">文件类型</span>
+</span><span class='line'><span class="err">&quot;filetype</span> <span class="err">on</span>
+</span><span class='line'><span class="err">&quot;filetype</span> <span class="err">plugin</span> <span class="err">on</span>
+</span><span class='line'><span class="err">&quot;filetype</span> <span class="err">indent</span> <span class="err">on</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">打开文件同一行</span>
+</span><span class='line'><span class="err">if</span> <span class="err">has(&quot;autocmd&quot;)</span>
+</span><span class='line'>    <span class="na">au BufReadPost * if line(&quot;&#39;\&quot;&quot;) &gt; 1 &amp;&amp; line(&quot;&#39;\&quot;&quot;) &lt;</span><span class="o">=</span> <span class="s">line(&quot;$&quot;) | exe &quot;normal! g&#39;\&quot;&quot; | endif</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">标签库</span>
+</span><span class='line'><span class="na">set tags</span><span class="o">=</span><span class="s">./tags,tags</span>
+</span><span class='line'><span class="na">set tags+</span><span class="o">=</span><span class="s">/</span>
+</span><span class='line'><span class="na">set tags+</span><span class="o">=</span><span class="s">/home/librakyle/.vim/tags/stl/tags</span>
+</span><span class='line'><span class="na">set tags+</span><span class="o">=</span><span class="s">/home/librakyle/.vim/tags/c/tags</span>
+</span><span class='line'><span class="na">set tags+</span><span class="o">=</span><span class="s">/home/librakyle/.vim/tags/opencv/tags</span>
+</span><span class='line'><span class="na">set tags+</span><span class="o">=</span><span class="s">/home/librakyle/.vim/tags/opencv2/tags</span>
+</span><span class='line'><span class="na">set tags+</span><span class="o">=</span><span class="s">/home/librakyle/.vim/tags/boost/tags</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">自动折行</span>
+</span><span class='line'><span class="err">set</span> <span class="err">wrap</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">折叠</span>
+</span><span class='line'><span class="err">&quot;set</span> <span class="err">foldenable</span>
+</span><span class='line'><span class="na">&quot;set foldmethod</span><span class="o">=</span><span class="s">indent</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">编码</span>
+</span><span class='line'><span class="na">set encoding</span><span class="o">=</span><span class="s">utf-8</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">当前行</span>
+</span><span class='line'><span class="err">&quot;set</span> <span class="err">cursorline</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">文件</span>
+</span><span class='line'><span class="err">set</span> <span class="err">autoread</span>
+</span><span class='line'><span class="err">set</span> <span class="err">autowrite</span>
+</span><span class='line'><span class="err">set</span> <span class="err">nobackup</span>
+</span><span class='line'><span class="err">set</span> <span class="err">noswapfile</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">历史记录</span>
+</span><span class='line'><span class="na">set history</span><span class="o">=</span><span class="s">1024</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">命令行</span>
+</span><span class='line'><span class="na">set cmdheight</span><span class="o">=</span><span class="s">2</span>
+</span><span class='line'><span class="na">set laststatus</span><span class="o">=</span><span class="s">3</span>
+</span><span class='line'><span class="err">&quot;</span> <span class="err">右边界</span>
+</span><span class='line'><span class="na">set colorcolumn</span><span class="o">=</span><span class="s">80</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Makefile</h4>
+
+<p>感谢陈皓编写的<a href="http://blog.csdn.net/haoel/article/details/2886">“跟我一起写Makefile”</a>系列，
+使得我在学习Makefile的时候轻松不少。
+另外，他还提供了一个<a href="http://coolshell.cn/articles/3790.html">调试Makefile的小脚本</a>，
+觉得挺好的，记录在这里也分享给大家：</p>
+
+<figure class='code'><figcaption><span> (vars.mk)</span> <a href='/downloads/code/vars.mk'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ini'><span class='line'><span class="err">%:</span>
+</span><span class='line'>  <span class="na">@echo &#39;$*</span><span class="o">=</span><span class="s">$($*)&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">d-%:</span>
+</span><span class='line'>  <span class="na">@echo &#39;$*</span><span class="o">=</span><span class="s">$($*)&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;  origin = $(origin $*)&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;   value = $(value  $*)&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;  flavor = $(flavor $*)&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>参考<a href="http://sourceforge.net/projects/gcmakefile/">http://sourceforge.net/projects/gcmakefile/</a>提供的
+一个C++通用的Makefile文件， 修改了一部分配置使得它更加适合自己使用，
+主要包含如下几个方面：
+* 编译过程中能够自动递归遍历程序根路径下的所有文件夹
+* 支持同时编译多个应用程序
+* 添加Opencv和boost链接选项
+* 修改删除了一些自己用不上相关配置</p>
+
+<p>修改完成后的Makefile文件如下:</p>
+
+<figure class='code'><figcaption><span> (Makefile)</span> <a href='/downloads/code/Makefile'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+<span class='line-number'>193</span>
+<span class='line-number'>194</span>
+<span class='line-number'>195</span>
+<span class='line-number'>196</span>
+<span class='line-number'>197</span>
+<span class='line-number'>198</span>
+<span class='line-number'>199</span>
+<span class='line-number'>200</span>
+<span class='line-number'>201</span>
+<span class='line-number'>202</span>
+<span class='line-number'>203</span>
+<span class='line-number'>204</span>
+<span class='line-number'>205</span>
+<span class='line-number'>206</span>
+<span class='line-number'>207</span>
+<span class='line-number'>208</span>
+<span class='line-number'>209</span>
+<span class='line-number'>210</span>
+<span class='line-number'>211</span>
+<span class='line-number'>212</span>
+<span class='line-number'>213</span>
+<span class='line-number'>214</span>
+<span class='line-number'>215</span>
+<span class='line-number'>216</span>
+<span class='line-number'>217</span>
+<span class='line-number'>218</span>
+<span class='line-number'>219</span>
+<span class='line-number'>220</span>
+<span class='line-number'>221</span>
+<span class='line-number'>222</span>
+<span class='line-number'>223</span>
+<span class='line-number'>224</span>
+<span class='line-number'>225</span>
+<span class='line-number'>226</span>
+<span class='line-number'>227</span>
+<span class='line-number'>228</span>
+<span class='line-number'>229</span>
+<span class='line-number'>230</span>
+<span class='line-number'>231</span>
+<span class='line-number'>232</span>
+<span class='line-number'>233</span>
+<span class='line-number'>234</span>
+<span class='line-number'>235</span>
+<span class='line-number'>236</span>
+<span class='line-number'>237</span>
+<span class='line-number'>238</span>
+<span class='line-number'>239</span>
+<span class='line-number'>240</span>
+<span class='line-number'>241</span>
+<span class='line-number'>242</span>
+<span class='line-number'>243</span>
+<span class='line-number'>244</span>
+<span class='line-number'>245</span>
+<span class='line-number'>246</span>
+<span class='line-number'>247</span>
+<span class='line-number'>248</span>
+<span class='line-number'>249</span>
+<span class='line-number'>250</span>
+<span class='line-number'>251</span>
+<span class='line-number'>252</span>
+<span class='line-number'>253</span>
+<span class='line-number'>254</span>
+<span class='line-number'>255</span>
+<span class='line-number'>256</span>
+<span class='line-number'>257</span>
+<span class='line-number'>258</span>
+<span class='line-number'>259</span>
+<span class='line-number'>260</span>
+<span class='line-number'>261</span>
+<span class='line-number'>262</span>
+<span class='line-number'>263</span>
+<span class='line-number'>264</span>
+<span class='line-number'>265</span>
+<span class='line-number'>266</span>
+<span class='line-number'>267</span>
+<span class='line-number'>268</span>
+<span class='line-number'>269</span>
+<span class='line-number'>270</span>
+<span class='line-number'>271</span>
+<span class='line-number'>272</span>
+<span class='line-number'>273</span>
+<span class='line-number'>274</span>
+<span class='line-number'>275</span>
+<span class='line-number'>276</span>
+</pre></td><td class='code'><pre><code class='ini'><span class='line'><span class="c">#############################################################################</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># Generic Makefile for C/C++ Program</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># License: GPL (General Public License)</span>
+</span><span class='line'><span class="c"># Author:  whyglinux &lt;whyglinux AT gmail DOT com&gt;</span>
+</span><span class='line'><span class="c"># Date:    2006/03/04 (version 0.1)</span>
+</span><span class='line'><span class="c">#          2007/03/24 (version 0.2)</span>
+</span><span class='line'><span class="c">#          2007/04/09 (version 0.3)</span>
+</span><span class='line'><span class="c">#          2007/06/26 (version 0.4)</span>
+</span><span class='line'><span class="c">#          2008/04/05 (version 0.5)</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># Description:</span>
+</span><span class='line'><span class="c"># ------------</span>
+</span><span class='line'><span class="c"># This is an easily customizable makefile template. The purpose is to</span>
+</span><span class='line'><span class="c"># provide an instant building environment for C/C++ programs.</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># It searches all the C/C++ source files in the specified directories,</span>
+</span><span class='line'><span class="c"># makes dependencies, compiles and links to form an executable.</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># Besides its default ability to build C/C++ programs which use only</span>
+</span><span class='line'><span class="c"># standard C/C++ libraries, you can customize the Makefile to build</span>
+</span><span class='line'><span class="c"># those using other libraries. Once done, without any changes you can</span>
+</span><span class='line'><span class="c"># then build programs using the same or less libraries, even if source</span>
+</span><span class='line'><span class="c"># files are renamed, added or removed. Therefore, it is particularly</span>
+</span><span class='line'><span class="c"># convenient to use it to build codes for experimental or study use.</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># GNU make is expected to use the Makefile. Other versions of makes</span>
+</span><span class='line'><span class="c"># may or may not work.</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># Usage:</span>
+</span><span class='line'><span class="c"># ------</span>
+</span><span class='line'><span class="c"># 1. Copy the Makefile to your program directory.</span>
+</span><span class='line'><span class="c"># 2. Customize in the &quot;Customizable Section&quot; only if necessary:</span>
+</span><span class='line'><span class="c">#    * to use non-standard C/C++ libraries, set pre-processor or compiler</span>
+</span><span class='line'><span class="c">#      options to &lt;MY_CFLAGS&gt; and linker ones to &lt;MY_LIBS&gt;</span>
+</span><span class='line'><span class="c">#      (See Makefile.gtk+-2.0 for an example)</span>
+</span><span class='line'><span class="c">#    * to search sources in more directories, set to &lt;SRCDIRS&gt;</span>
+</span><span class='line'><span class="c">#    * to specify your favorite program name, set to &lt;PROGRAM&gt;</span>
+</span><span class='line'><span class="c"># 3. Type make to start building your program.</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># Make Target:</span>
+</span><span class='line'><span class="c"># ------------</span>
+</span><span class='line'><span class="c"># The Makefile provides the following targets to make:</span>
+</span><span class='line'><span class="c">#   $ make           compile and link</span>
+</span><span class='line'><span class="c">#   $ make NODEP=yes compile and link without generating dependencies</span>
+</span><span class='line'><span class="c">#   $ make objs      compile only (no linking)</span>
+</span><span class='line'><span class="c">#   $ make ctags     create ctags for VI editor</span>
+</span><span class='line'><span class="c">#   $ make clean   clean objects, the executable and dependencies</span>
+</span><span class='line'><span class="c">#   $ make help      get the usage of the makefile</span>
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c">#===========================================================================</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">## Customizable Section: adapt those variables to suit your program.</span>
+</span><span class='line'><span class="c">##==========================================================================</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The pre-processor and compiler options.</span>
+</span><span class='line'><span class="na">MY_CFLAGS</span> <span class="o">=</span> <span class="s">`pkg-config --cflags opencv boost` -I$(SRCROOT)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The linker options.</span>
+</span><span class='line'><span class="na">MY_LIBS</span>   <span class="o">=</span> <span class="s">`pkg-config --libs opencv boost`</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The pre-processor options used by the cpp (man cpp for more).</span>
+</span><span class='line'><span class="na">CPPFLAGS</span>  <span class="o">=</span> <span class="s">-Wall</span>
+</span><span class='line'><span class="na">CFLAGS</span>  <span class="o">=</span> <span class="s">-g -O2</span>
+</span><span class='line'><span class="na">CXXFLAGS</span><span class="o">=</span> <span class="s">-g -O2</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The root of the project.</span>
+</span><span class='line'><span class="na">SRCROOT</span>   <span class="o">=</span> <span class="s">/home/librakyle/Software/Makefile</span>
+</span><span class='line'><span class="na">SRCDIR</span>    <span class="o">=</span>
+</span><span class='line'><span class="na">RECURSION</span> <span class="o">=</span> <span class="s">1</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The executable file name.</span>
+</span><span class='line'><span class="c"># If not specified, current directory name or `demo.out&#39; will be used.</span>
+</span><span class='line'><span class="na">PROGRAM</span>   <span class="o">=</span> <span class="s">Main Main2 Subtitle/aa/bb/Main3</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">## Implicit Section: change the following only when necessary.</span>
+</span><span class='line'><span class="c">##==========================================================================</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The source file types (headers excluded).</span>
+</span><span class='line'><span class="c"># .c indicates C source files, and others C++ ones.</span>
+</span><span class='line'><span class="na">SRCEXTS</span> <span class="o">=</span> <span class="s">.c .C .cc .cpp .CPP .c++ .cxx .cp</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The header file types.</span>
+</span><span class='line'><span class="na">HDREXTS</span> <span class="o">=</span> <span class="s">.h .H .hh .hpp .HPP .h++ .hxx .hp</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The C++ program compiler.</span>
+</span><span class='line'><span class="na">CXX</span>    <span class="o">=</span> <span class="s">g++</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The C program compiler.</span>
+</span><span class='line'><span class="na">CC</span>     <span class="o">=</span> <span class="s">gcc</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The command used to delete file.</span>
+</span><span class='line'><span class="na">RM</span>     <span class="o">=</span> <span class="s">rm -f</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">CTAGS</span> <span class="o">=</span> <span class="s">ctags</span>
+</span><span class='line'><span class="na">CTAGSFLAGS</span> <span class="o">=</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The directories in which source files reside.</span>
+</span><span class='line'><span class="na">SRCROOT :</span><span class="o">=</span> <span class="s">$(foreach d,$(SRCROOT),$(d:/=))</span>
+</span><span class='line'><span class="na">SRCDIRS :</span><span class="o">=</span> <span class="s">$(strip $(SRCROOT) $(SRCDIR))</span>
+</span><span class='line'><span class="na">SRCDIRS :</span><span class="o">=</span> <span class="s">$(foreach d,$(SRCDIRS),$(d:/=))</span>
+</span><span class='line'><span class="err">ifeq</span> <span class="err">($(RECURSION),</span> <span class="err">1)</span>
+</span><span class='line'><span class="na">SRCDIRS :</span><span class="o">=</span> <span class="s">$(shell find $(SRCDIRS) -type d)</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'><span class="na">SRCDIRS :</span><span class="o">=</span> <span class="s">$(sort $(SRCDIRS))</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The options used in linking as well as in any direct use of ld.</span>
+</span><span class='line'><span class="na">LDFLAGS</span>   <span class="o">=</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">## Stable Section: usually no need to be changed. But you can add more.</span>
+</span><span class='line'><span class="c">##==========================================================================</span>
+</span><span class='line'><span class="na">SHELL</span>   <span class="o">=</span> <span class="s">/bin/bash</span>
+</span><span class='line'><span class="na">EMPTY</span>   <span class="o">=</span>
+</span><span class='line'><span class="na">SPACE</span>   <span class="o">=</span> <span class="s">$(EMPTY) $(EMPTY)</span>
+</span><span class='line'><span class="err">ifeq</span> <span class="err">($(PROGRAM),)</span>
+</span><span class='line'>  <span class="na">CUR_PATH_NAMES</span> <span class="o">=</span> <span class="s">$(subst /,$(SPACE),$(subst $(SPACE),_,$(CURDIR)))</span>
+</span><span class='line'><span class="s">  PROGRAM = $(word $(words $(CUR_PATH_NAMES)),$(CUR_PATH_NAMES))</span>
+</span><span class='line'><span class="s">  ifeq ($(PROGRAM),)</span>
+</span><span class='line'><span class="s">    PROGRAM = demo.out</span>
+</span><span class='line'><span class="s">  endif</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'><span class="err">ifeq</span> <span class="err">($(SRCDIRS),)</span>
+</span><span class='line'>  <span class="na">SRCDIRS</span> <span class="o">=</span> <span class="s">.</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'><span class="na">SOURCES</span> <span class="o">=</span> <span class="s">$(foreach d,$(SRCDIRS),$(wildcard $(addprefix $(d)/*,$(SRCEXTS))))</span>
+</span><span class='line'><span class="na">HEADERS</span> <span class="o">=</span> <span class="s">$(foreach d,$(SRCDIRS),$(wildcard $(addprefix $(d)/*,$(HDREXTS))))</span>
+</span><span class='line'><span class="na">SRC_CXX</span> <span class="o">=</span> <span class="s">$(filter-out %.c,$(SOURCES))</span>
+</span><span class='line'><span class="na">OBJS</span>    <span class="o">=</span> <span class="s">$(addsuffix .o, $(basename $(SOURCES)))</span>
+</span><span class='line'><span class="na">DEPS</span>    <span class="o">=</span> <span class="s">$(OBJS:.o=.d)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">## Define some useful variables.</span>
+</span><span class='line'><span class="na">DEP_OPT</span> <span class="o">=</span> <span class="s">$(shell if `$(CC) --version | grep &quot;gcc&quot; &gt;/dev/null`; then \</span>
+</span><span class='line'><span class="s">                  echo &quot;-MM -MP&quot;; else echo &quot;-M&quot;; fi )</span>
+</span><span class='line'><span class="na">DEPEND</span>      <span class="o">=</span> <span class="s">$(CC)  $(DEP_OPT)  $(MY_CFLAGS) $(CFLAGS) $(CPPFLAGS)</span>
+</span><span class='line'><span class="na">DEPEND.d</span>    <span class="o">=</span> <span class="s">$(subst -g ,,$(DEPEND))</span>
+</span><span class='line'><span class="na">COMPILE.c</span>   <span class="o">=</span> <span class="s">$(CC)  $(MY_CFLAGS) $(CFLAGS)   $(CPPFLAGS) -c</span>
+</span><span class='line'><span class="na">COMPILE.cxx</span> <span class="o">=</span> <span class="s">$(CXX) $(MY_CFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c</span>
+</span><span class='line'><span class="na">LINK.c</span>      <span class="o">=</span> <span class="s">$(CC)  $(MY_CFLAGS) $(CFLAGS)   $(CPPFLAGS) $(LDFLAGS)</span>
+</span><span class='line'><span class="na">LINK.cxx</span>    <span class="o">=</span> <span class="s">$(CXX) $(MY_CFLAGS) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS)</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">.PHONY:</span> <span class="err">all</span> <span class="err">objs</span> <span class="err">tags</span> <span class="err">ctags</span> <span class="err">clean</span> <span class="err">help</span> <span class="err">show</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Delete the default suffixes</span>
+</span><span class='line'><span class="err">.SUFFIXES:</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">all:</span> <span class="err">$(PROGRAM)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Rules for creating dependency files (.d).</span>
+</span><span class='line'><span class="c">#------------------------------------------</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.d:%.c</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">-n</span> <span class="err">$(dir</span> <span class="err">$&lt;)</span> <span class="err">&gt;</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">$(DEPEND.d)</span> <span class="err">$&lt;</span> <span class="err">&gt;&gt;</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.d:%.C</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">-n</span> <span class="err">$(dir</span> <span class="err">$&lt;)</span> <span class="err">&gt;</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">$(DEPEND.d)</span> <span class="err">$&lt;</span> <span class="err">&gt;&gt;</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.d:%.cc</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">-n</span> <span class="err">$(dir</span> <span class="err">$&lt;)</span> <span class="err">&gt;</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">$(DEPEND.d)</span> <span class="err">$&lt;</span> <span class="err">&gt;&gt;</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.d:%.cpp</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">-n</span> <span class="err">$(dir</span> <span class="err">$&lt;)</span> <span class="err">&gt;</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">$(DEPEND.d)</span> <span class="err">$&lt;</span> <span class="err">&gt;&gt;</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.d:%.CPP</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">-n</span> <span class="err">$(dir</span> <span class="err">$&lt;)</span> <span class="err">&gt;</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">$(DEPEND.d)</span> <span class="err">$&lt;</span> <span class="err">&gt;&gt;</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.d:%.c++</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">-n</span> <span class="err">$(dir</span> <span class="err">$&lt;)</span> <span class="err">&gt;</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">$(DEPEND.d)</span> <span class="err">$&lt;</span> <span class="err">&gt;&gt;</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.d:%.cp</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">-n</span> <span class="err">$(dir</span> <span class="err">$&lt;)</span> <span class="err">&gt;</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">$(DEPEND.d)</span> <span class="err">$&lt;</span> <span class="err">&gt;&gt;</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.d:%.cxx</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">-n</span> <span class="err">$(dir</span> <span class="err">$&lt;)</span> <span class="err">&gt;</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">$(DEPEND.d)</span> <span class="err">$&lt;</span> <span class="err">&gt;&gt;</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Rules for generating object files (.o).</span>
+</span><span class='line'><span class="c">#----------------------------------------</span>
+</span><span class='line'><span class="err">objs:$(OBJS)</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.o:%.c</span>
+</span><span class='line'>  <span class="err">$(COMPILE.c)</span> <span class="err">$&lt;</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.o:%.C</span>
+</span><span class='line'>  <span class="err">$(COMPILE.cxx)</span> <span class="err">$&lt;</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.o:%.cc</span>
+</span><span class='line'>  <span class="err">$(COMPILE.cxx)</span> <span class="err">$&lt;</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.o:%.cpp</span>
+</span><span class='line'>  <span class="err">$(COMPILE.cxx)</span> <span class="err">$&lt;</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.o:%.CPP</span>
+</span><span class='line'>  <span class="err">$(COMPILE.cxx)</span> <span class="err">$&lt;</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.o:%.c++</span>
+</span><span class='line'>  <span class="err">$(COMPILE.cxx)</span> <span class="err">$&lt;</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.o:%.cp</span>
+</span><span class='line'>  <span class="err">$(COMPILE.cxx)</span> <span class="err">$&lt;</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">%.o:%.cxx</span>
+</span><span class='line'>  <span class="err">$(COMPILE.cxx)</span> <span class="err">$&lt;</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Rules for generating the tags.</span>
+</span><span class='line'><span class="c">#-------------------------------------</span>
+</span><span class='line'><span class="err">tags:</span> <span class="err">$(HEADERS)</span> <span class="err">$(SOURCES)</span>
+</span><span class='line'>  <span class="err">$(ETAGS)</span> <span class="err">$(ETAGSFLAGS)</span> <span class="err">$(HEADERS)</span> <span class="err">$(SOURCES)</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">ctags:</span> <span class="err">$(HEADERS)</span> <span class="err">$(SOURCES)</span>
+</span><span class='line'>  <span class="err">$(CTAGS)</span> <span class="err">$(CTAGSFLAGS)</span> <span class="err">$(HEADERS)</span> <span class="err">$(SOURCES)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Rules for generating the executable.</span>
+</span><span class='line'><span class="c">#-------------------------------------</span>
+</span><span class='line'><span class="na">COBJS</span> <span class="o">=</span> <span class="s">$(filter-out $(foreach d,$(PROGRAM), \</span>
+</span><span class='line'><span class="s">  $(addprefix $(SRCROOT)/,$(d).o)), $(OBJS))</span>
+</span><span class='line'><span class="err">$(PROGRAM):$(OBJS)</span>
+</span><span class='line'><span class="err">ifeq</span> <span class="err">($(SRC_CXX),)</span>              <span class="c"># C program</span>
+</span><span class='line'>  <span class="err">$(LINK.c)</span>   <span class="err">$(COBJS)</span> <span class="err">$(SRCROOT)/$@.o</span> <span class="err">$(MY_LIBS)</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">Type</span> <span class="err">$(SRCROOT)/$@</span> <span class="err">to</span> <span class="err">execute</span> <span class="err">the</span> <span class="err">program.</span>
+</span><span class='line'><span class="err">else</span>                            <span class="c"># C++ program</span>
+</span><span class='line'>  <span class="err">$(LINK.cxx)</span> <span class="err">$(COBJS)</span> <span class="err">$(SRCROOT)/$@.o</span> <span class="err">$(MY_LIBS)</span> <span class="err">-o</span> <span class="err">$@</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">Type</span> <span class="err">$(SRCROOT)/$@</span> <span class="err">to</span> <span class="err">execute</span> <span class="err">the</span> <span class="err">program.</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">ifndef</span> <span class="err">NODEP</span>
+</span><span class='line'><span class="err">ifneq</span> <span class="err">($(DEPS),)</span>
+</span><span class='line'>  <span class="err">sinclude</span> <span class="err">$(DEPS)</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'><span class="err">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">clean:</span>
+</span><span class='line'>  <span class="err">$(RM)</span> <span class="err">$(DEPS)</span> <span class="err">$(OBJS)</span>
+</span><span class='line'>  <span class="err">$(RM)</span> <span class="err">$(PROGRAM)</span> <span class="err">$(foreach</span> <span class="err">d,$(PROGRAM),$(addprefix</span> <span class="err">$(d),.exe))</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Show help.</span>
+</span><span class='line'><span class="err">help:</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;Generic</span> <span class="err">Makefile</span> <span class="err">for</span> <span class="err">C/C++</span> <span class="err">Programs</span> <span class="err">(gcmakefile)</span> <span class="err">version</span> <span class="err">0.5&#39;</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;Copyright</span> <span class="err">(C)</span> <span class="err">2007,</span> <span class="err">2008</span> <span class="err">whyglinux</span> <span class="err">&lt;whyglinux@hotmail.com&gt;&#39;</span>
+</span><span class='line'>  <span class="err">@echo</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;Usage:</span> <span class="err">make</span> <span class="err">[TARGET]&#39;</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;TARGETS:&#39;</span>
+</span><span class='line'>  <span class="na">@echo &#39;  all       (</span><span class="o">=</span><span class="s">make) compile and link.&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;  NODEP=yes make without generating dependencies.&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;  objs      compile only (no linking).&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;  ctags     create ctags for VI editor.&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;  clean     clean objects, the executable and dependencies.&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;  show      show variables (for debug use only).&#39;</span>
+</span><span class='line'><span class="s">  @echo &#39;  help      print this message.&#39;</span>
+</span><span class='line'><span class="s">  @echo</span>
+</span><span class='line'><span class="s">  @echo &#39;Report bugs to &lt;whyglinux AT gmail DOT com&gt;.&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Show variables (for debug use only.)</span>
+</span><span class='line'><span class="err">show:</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;PROGRAM</span>     <span class="err">:&#39;</span> <span class="err">$(PROGRAM)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;SRCDIRS</span>     <span class="err">:&#39;</span> <span class="err">$(SRCDIRS)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;HEADERS</span>     <span class="err">:&#39;</span> <span class="err">$(HEADERS)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;SOURCES</span>     <span class="err">:&#39;</span> <span class="err">$(SOURCES)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;SRC_CXX</span>     <span class="err">:&#39;</span> <span class="err">$(SRC_CXX)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;OBJS</span>        <span class="err">:&#39;</span> <span class="err">$(OBJS)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;DEPS</span>        <span class="err">:&#39;</span> <span class="err">$(DEPS)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;DEPEND</span>      <span class="err">:&#39;</span> <span class="err">$(DEPEND)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;COMPILE.c</span>   <span class="err">:&#39;</span> <span class="err">$(COMPILE.c)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;COMPILE.cxx</span> <span class="err">:&#39;</span> <span class="err">$(COMPILE.cxx)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;LINK.c</span>      <span class="err">:&#39;</span> <span class="err">$(LINK.c)</span>
+</span><span class='line'>  <span class="err">@echo</span> <span class="err">&#39;LINK.cxx</span>    <span class="err">:&#39;</span> <span class="err">$(LINK.cxx)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">## End of the Makefile ##  Suggestions are welcome  ## All rights reserved ##</span>
+</span><span class='line'><span class="c">#############################################################################</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>GDB</h4>
+
+<p>学习GDB的时候，参考了陈皓编写的<a href="http://blog.csdn.net/haoel/article/details/2879">“用GDB调试程序”</a>系列，
+受益匪浅。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">LibraKyle</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-09T09:53:00+08:00" pubdate data-updated="true">Nov 9<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  Categories in
+  
+    <a class='category' href='/blog/categories/95c50c7c/'>Program</a>
+  
+</span>
+
+
+      
+
+<span class="categories">
+  Tags in
+  
+    <a class='category' href='/blog/tags/f6f87c9f/'>C++</a>, <a class='category' href='/blog/tags/bbc0db17/'>GDB</a>, <a class='category' href='/blog/tags/b6791165/'>Makefile</a>, <a class='category' href='/blog/tags/94403767/'>Vim</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/25/ubuntu-config/" title="Previous Post: Ubuntu配置">&laquo; Ubuntu配置</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href=' /blog/categories/95c50c7c/'>Program (5)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul id="tags">
+    <li> <a style='font-size: 100.0%' href=' /blog/tags/f6f87c9f/'>C++ </a> <a style='font-size: 100.0%' href=' /blog/tags/bbc0db17/'>GDB </a> <a style='font-size: 140.0%' href=' /blog/tags/0bcc7010/'>Git </a> <a style='font-size: 100.0%' href=' /blog/tags/9792e234/'>Gitlab </a> <a style='font-size: 100.0%' href=' /blog/tags/b6791165/'>Makefile </a> <a style='font-size: 100.0%' href=' /blog/tags/7135c322/'>Octopress </a> <a style='font-size: 100.0%' href=' /blog/tags/3d945423/'>Ubuntu </a> <a style='font-size: 100.0%' href=' /blog/tags/94403767/'>Vim </a> <a style='font-size: 100.0%' href=' /blog/tags/e8e4d1f0/'>VirtualBox </a></li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/09/cpp-develop-environment/">C++ 开发环境</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/25/ubuntu-config/">Ubuntu配置</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/24/git-server-gitlabhq/">Git服务器搭建—Gitlab</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/18/git-usage/">Git部分命令说明</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/17/octopress-plugins/">Octopress Plugins 使用样例</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>About Me</h1>
+  <ul><li>Email: <a href="mailto:librakyle@gmail.com">librakyle@gmail.com </a></ul></li>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - LibraKyle -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'librakyle';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://librakyle.github.com/blog/blog/2012/11/09/cpp-develop-environment/';
+        var disqus_url = 'http://librakyle.github.com/blog/blog/2012/11/09/cpp-develop-environment/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

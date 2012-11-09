@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Git | LibraKyle Home]]></title>
+  <link href="http://librakyle.github.com/blog/blog/tags/0bcc7010/atom.xml" rel="self"/>
+  <link href="http://librakyle.github.com/blog/"/>
+  <updated>2012-11-09T13:41:16+08:00</updated>
+  <id>http://librakyle.github.com/blog/</id>
+  <author>
+    <name><![CDATA[LibraKyle]]></name>
+    <email><![CDATA[librakyle@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git服务器搭建—Gitlab]]></title>
+    <link href="http://librakyle.github.com/blog/blog/2012/10/24/git-server-gitlabhq/"/>
+    <updated>2012-10-24T14:59:00+08:00</updated>
+    <id>http://librakyle.github.com/blog/blog/2012/10/24/git-server-gitlabhq</id>
+    <content type="html"><![CDATA[<p>这几天在Ubuntu系统下搭建好了Git服务器，采用开源的<a href="https://github.com/gitlabhq/gitlabhq/">Gitlab</a>。
+由于Gitlab更新频率挺快，参考官方文档还是相当靠谱的，这里只是简单记录几笔。</p>
+
+<!-- more -->
+
+
+<h3>Gitlab安装相关</h3>
+
+<p>安装过程中需要修改Gitlab的配置文件。
+```</p>
+
+<h1>web:host, eamil:from, git_host:admin_url host</h1>
+
+<p>sudo vim /etc/nginx/sites-enabled/gitlab</p>
+
+<h1>listen, server_name</h1>
+
+<p>sudo vim /home/gitlab/gitlab/config/gitlab.yml
+```</p>
+
+<p>安装完成之后，需要运行如下命令来使得Gitolite认可当前域名，切记切记！！！
+<code>
+sudo -u gitlab -H git clone git@[server_name]:gitolite-admin.git /tmp/gitolite-admin
+</code></p>
+
+<p>在Gitlab上新建项目可能需要较长时间，需要耐心等待。想要重启Gitlab服务，可以使用如下命令：
+<code>
+sudo /etc/init.d/nginx restart
+sudo /etc/init.d/gitlab restart
+</code></p>
+
+<h3><a href="https://github.com/gitlabhq/gitlabhq/issues/1780">未解决的问题</a></h3>
+
+<ul>
+<li><p>如果文件名称或者路径名包含中文，在Gitlab页面上不能正常查看文件内容。
+<img class="center" src="/images/png/gitlab-file.png" title="Gitlab File Show Error" alt="Gitlab File Show Error"></p></li>
+<li><p>如果Git提交中的文件名称包含中文，那么该文件无法显示修改对比。
+<img class="center" src="/images/png/gitlab-commit.png" title="Gitlab Commit Show Error" alt="Gitlab Commit Show Error"></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git部分命令说明]]></title>
+    <link href="http://librakyle.github.com/blog/blog/2012/10/18/git-usage/"/>
+    <updated>2012-10-18T14:33:00+08:00</updated>
+    <id>http://librakyle.github.com/blog/blog/2012/10/18/git-usage</id>
+    <content type="html"><![CDATA[<p>开始研究Git，<a href="http://www.worldhello.net/gotgit/">《Git权威指南》</a>这本书看了一部分了，觉得讲解的挺详细挺好的。
+记录部分Git命令，方便查找。</p>
+
+<h3>参数配置</h3>
+
+<p><code>
+git config --global core.quotepath false        # 解决中文问题
+git config --global color.ui true               # Git高亮
+git config --global core.editor vim             # 配置默认编辑器
+git config --global user.name [name]            # 配置默认用户名
+git config --global user.email [email]          # 配置默认邮箱
+git config --global core.excludesfile [file]    # 配置个人ignore配置
+git config receive.denyNonFastForwards true     # 禁止非快进式推进
+git config push.default tracking                # 设置默认只提交当前分支
+git config branch.autosetuprebase always        # 执行更新时，使用变基来进行合并操作
+</code></p>
+
+<!-- more -->
+
+
+<h3>基础</h3>
+
+<p><code>
+git add [file]                                  # 将工作区文件添加到暂存区
+git add .                                       # 将工作区的修改添加修改到暂存区
+git add -u                                      # 将工作区的修改删除添加到暂存区
+git add -A                                      # 将工作区的所有改动添加到暂存区
+git rm [file]                                   # 删除文件，并将该操作添加到暂存区
+git status                                      # 查看当前状态
+git commit -m [message]                         # 提交当前修改提交到版本库
+git commit --amend -m [message]                 # 重新进行最后一次提交
+git log                                         # 查看版本库的提交记录
+</code></p>
+
+<h3>比较</h3>
+
+<p><code>
+git diff                                        # 比较工作区和暂存区
+git diff HEAD                                   # 比较暂存区和HEAD区
+git diff --cached                               # 比较工作区和HEAD区
+</code></p>
+
+<h3>重置</h3>
+
+<p><code>
+git reset -- [file]                             # 将版本库中文件替换掉暂存区的文件
+git reset --soft  [&lt;commit&gt;]                    # 清空版本库中的修改
+git reset --mixed [&lt;commit&gt;]                    # 清空版本库、暂存区中的修改
+git reset --hard  [&lt;commit&gt;]                    # 清空版本库、暂存区、工作区的修改
+</code></p>
+
+<h3>检出</h3>
+
+<p><code>
+git checkout -- [file]                          # 将暂存区中该文件的覆盖掉工作区
+git checkout [branch]                           # 切换HEAD到另一分支
+git checkout [new_branch] [&lt;start_point&gt;]       # 根据&lt;start_point&gt;创建并切换分支
+</code></p>
+
+<h3>存储</h3>
+
+<p><code>
+git stash                                       # 存储当前工作区和暂存区
+git stash save [message]                        # 存储当前工作去和暂存区
+git stash list                                  # 现实存储的列表
+git stash pop                                   # 从最近保存中恢复进度，并将其删除存储
+git stash apply stash@{index}                   # 根据索引恢复进度
+git stash clear                                 # 清空存储
+</code></p>
+
+<h3>标记</h3>
+
+<p><code>
+git tag -m [message] [tag] [commit]             # 创建标记
+git tag -d [tag]                                # 删除标记
+git tag -n -l                                   # 显示当前标记
+git push [remote] [tag]:[tag]                   # 共享标记
+git push [remote] :[tag]                        # 删除远程标记
+</code></p>
+
+<h3>分支</h3>
+
+<p><code>
+git checkout -b [branch1]                       # 创建并切换本地分支
+git branch -d [branch1]                         # 删除本地分支
+git push [remote] [branch1]:[branch2]           # 提交本地数据到远程分支
+git pull [remote] [branch]:[branch]             # 从远程同步当前分支
+git checkout -b [branch1] [remote]/[branch2]    # 切换远程分支
+git push [remote] :[branch2]                    # 删除远程分支
+git merge [branch] -m [message]                 # 合并分支
+</code></p>
+
+<h3>变基</h3>
+
+<p><code>
+git rebase [branch]                             # 变基合并，将两个分支进行合并
+git rebase --continue                           # 变基发生冲突，解决冲突后继续变基
+git rebase --abort                              # 变基发生冲突，终止变基
+</code></p>
+
+<h3>克隆</h3>
+
+<p><code>
+git clone [remote_url] [remote_name]            # 克隆版本库
+git clone --bare [remote_url] [remote_name]     # 克隆裸版本库
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

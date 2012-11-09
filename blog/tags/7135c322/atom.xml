@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Octopress | LibraKyle Home]]></title>
+  <link href="http://librakyle.github.com/blog/blog/tags/7135c322/atom.xml" rel="self"/>
+  <link href="http://librakyle.github.com/blog/"/>
+  <updated>2012-11-09T13:41:16+08:00</updated>
+  <id>http://librakyle.github.com/blog/</id>
+  <author>
+    <name><![CDATA[LibraKyle]]></name>
+    <email><![CDATA[librakyle@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress Plugins 使用样例]]></title>
+    <link href="http://librakyle.github.com/blog/blog/2012/10/17/octopress-plugins/"/>
+    <updated>2012-10-17T10:20:00+08:00</updated>
+    <id>http://librakyle.github.com/blog/blog/2012/10/17/octopress-plugins</id>
+    <content type="html"><![CDATA[<p>参考<a href="http://octopress.org">Octopress</a>的说明文档，记录下使用Octopress插件的部分样例，方便以后查找。</p>
+
+<!--more-->
+
+
+<h3>高亮显示代码</h3>
+
+<p>``` cpp Test Backtick http://blog.librakyle.com HomePage</p>
+
+<h1>include <iostream></h1>
+
+<p>using namespace std;
+int main(int argc, char *argv[])
+{</p>
+
+<pre><code>cout &lt;&lt; "Hello World." &lt;&lt; endl;
+return 0;
+</code></pre>
+
+<p>}
+```
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Test (test.cpp)</span> <a href='/downloads/code/test.cpp'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div><script src='https://gist.github.com/3903590.js?file='></script>
+<noscript><pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char *argv[])
+{
+    cout &lt;&lt; &quot;Hello World.&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre></noscript></div>
+
+<div><script src='https://gist.github.com/3903596.js?file=test.cpp'></script>
+<noscript><pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char *argv[])
+{
+    cout &lt;&lt; &quot;How do you do?&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre></noscript></div>
+</p>
+
+<h3>显示图片</h3>
+
+<p><img class="center" src="/images/Basset-Hound.png" width="300" height="300" title="Basset-Hound" alt="Basset-Hound"></p>
+
+<h3>显示视频</h3>
+
+<p><video width='480' height='320' preload='none' controls poster=' http://www.brandwisdom.cn//style/images1/bwIndex.png'><source src='http://www.brandwisdom.cn//style/bw.flv' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/></video>
+视频播放失败，等有时间再研究一下原因。</p>
+
+<h3>显示引用</h3>
+
+<p><blockquote><p>LibraKyle Home<br/>4B 79 6C 65 20 6C 6F 76 65 73 20 46 65 6C 69 63 69 61 21</p><footer><strong>LibraKyle</strong> <cite><a href='http://blog.librakyle.com'>Welcome to LibraKyle Home</a></cite></footer></blockquote>
+<span class='pullquote-right' data-pullquote='surround it like this'>
+Surround your paragraph with the pull quote tags. Then when you come to
+the text you want to pull, surround it like this and that's all there is to it.
+</span></p>
+
+<h3></h3>
+]]></content>
+  </entry>
+  
+</feed>

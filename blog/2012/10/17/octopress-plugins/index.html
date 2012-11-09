@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="zh-cn"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Octopress Plugins 使用样例 - LibraKyle Home</title>
+  <meta name="author" content="LibraKyle">
+
+  
+  <meta name="description" content="参考Octopress的说明文档，记录下使用Octopress插件的部分样例，方便以后查找。 高亮显示代码 Test Backtick HomePage1
+2
+3
+4
+5
+6
+7
+#include &lt;iostream&gt;
+using namespace std;
+int main(int &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://librakyle.github.com/blog/blog/2012/10/17/octopress-plugins/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="LibraKyle Home" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">LibraKyle Home</a></h1>
+  
+    <h2>4B 79 6C 65 20 6C 6F 76 65 73 20 46 65 6C 69 63 69 61 21</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:librakyle.github.com/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Octopress Plugins 使用样例</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-17T10:20:00+08:00" pubdate data-updated="true">Oct 17<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>参考<a href="http://octopress.org">Octopress</a>的说明文档，记录下使用Octopress插件的部分样例，方便以后查找。</p>
+
+<!--more-->
+
+
+<h3>高亮显示代码</h3>
+
+<figure class='code'><figcaption><span>Test Backtick </span><a href='http://blog.librakyle.com'>HomePage</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span>Test (test.cpp)</span> <a href='/downloads/code/test.cpp'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<div><script src='https://gist.github.com/3903590.js?file='></script>
+<noscript><pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char *argv[])
+{
+    cout &lt;&lt; &quot;Hello World.&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/3903596.js?file=test.cpp'></script>
+<noscript><pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char *argv[])
+{
+    cout &lt;&lt; &quot;How do you do?&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre></noscript></div>
+
+
+<h3>显示图片</h3>
+
+<p><img class="center" src="/images/Basset-Hound.png" width="300" height="300" title="Basset-Hound" alt="Basset-Hound"></p>
+
+<h3>显示视频</h3>
+
+<p><video width='480' height='320' preload='none' controls poster=' http://www.brandwisdom.cn//style/images1/bwIndex.png'><source src='http://www.brandwisdom.cn//style/bw.flv' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/></video>
+视频播放失败，等有时间再研究一下原因。</p>
+
+<h3>显示引用</h3>
+
+<blockquote><p>LibraKyle Home<br/>4B 79 6C 65 20 6C 6F 76 65 73 20 46 65 6C 69 63 69 61 21</p><footer><strong>LibraKyle</strong> <cite><a href='http://blog.librakyle.com'>Welcome to LibraKyle Home</a></cite></footer></blockquote>
+
+
+<p><span class='pullquote-right' data-pullquote='surround it like this'>
+Surround your paragraph with the pull quote tags. Then when you come to
+the text you want to pull, surround it like this and that&#8217;s all there is to it.
+</span></p>
+
+<h3></h3>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">LibraKyle</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-17T10:20:00+08:00" pubdate data-updated="true">Oct 17<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  Categories in
+  
+    <a class='category' href='/blog/categories/95c50c7c/'>Program</a>
+  
+</span>
+
+
+      
+
+<span class="categories">
+  Tags in
+  
+    <a class='category' href='/blog/tags/7135c322/'>Octopress</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/10/18/git-usage/" title="Next Post: Git部分命令说明">Git部分命令说明 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href=' /blog/categories/95c50c7c/'>Program (5)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul id="tags">
+    <li> <a style='font-size: 100.0%' href=' /blog/tags/f6f87c9f/'>C++ </a> <a style='font-size: 100.0%' href=' /blog/tags/bbc0db17/'>GDB </a> <a style='font-size: 140.0%' href=' /blog/tags/0bcc7010/'>Git </a> <a style='font-size: 100.0%' href=' /blog/tags/9792e234/'>Gitlab </a> <a style='font-size: 100.0%' href=' /blog/tags/b6791165/'>Makefile </a> <a style='font-size: 100.0%' href=' /blog/tags/7135c322/'>Octopress </a> <a style='font-size: 100.0%' href=' /blog/tags/3d945423/'>Ubuntu </a> <a style='font-size: 100.0%' href=' /blog/tags/94403767/'>Vim </a> <a style='font-size: 100.0%' href=' /blog/tags/e8e4d1f0/'>VirtualBox </a></li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/09/cpp-develop-environment/">C++ 开发环境</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/25/ubuntu-config/">Ubuntu配置</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/24/git-server-gitlabhq/">Git服务器搭建—Gitlab</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/18/git-usage/">Git部分命令说明</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/17/octopress-plugins/">Octopress Plugins 使用样例</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>About Me</h1>
+  <ul><li>Email: <a href="mailto:librakyle@gmail.com">librakyle@gmail.com </a></ul></li>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - LibraKyle -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'librakyle';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
