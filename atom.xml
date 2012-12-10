@@ -4,7 +4,7 @@
   <title><![CDATA[LibraKyle Home]]></title>
   <link href="http://blog.librakyle.com/atom.xml" rel="self"/>
   <link href="http://blog.librakyle.com/"/>
-  <updated>2012-11-09T16:57:52+08:00</updated>
+  <updated>2012-12-10T17:06:54+08:00</updated>
   <id>http://blog.librakyle.com/</id>
   <author>
     <name><![CDATA[LibraKyle]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[阅读过的书籍]]></title>
+    <link href="http://blog.librakyle.com/blog/2012/12/10/book/"/>
+    <updated>2012-12-10T16:47:00+08:00</updated>
+    <id>http://blog.librakyle.com/blog/2012/12/10/book</id>
+    <content type="html"><![CDATA[<p>零零散散的看了不少书，记录下最近自己看过的书籍吧：</p>
+
+<ul>
+<li><p>《鸟哥的Linux私房菜：基础学习篇（第3版》，鸟哥著 王世江编，人民邮点出版社，2010-07-01</p></li>
+<li><p>《Git权威指南》，蒋鑫，机械工程出版社，2011-07-01</p></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[一个加快编译速度的方法]]></title>
